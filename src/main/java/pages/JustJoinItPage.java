@@ -7,8 +7,8 @@ import org.openqa.selenium.WebDriver;
 public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
     private String signIn = "//button[text() ='Sign in']";
-    private String candidateProfileSignIn = "//p[text() ='Sign in to Candidate's profile']";
-    private String employerProfileSignIn = "//p[text() ='Sign in to Employer's panel']";
+    private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
+    private String employerProfileSignIn = "//p[text() =\"Sign in to Employer's panel\"]";
 
     private String singInByEmail = "//button[text() = 'Sign in using address email']";
 

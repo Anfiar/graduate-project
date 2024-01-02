@@ -1,4 +1,4 @@
-import domain.Employer;
+import domain.Candidate;
 import org.junit.jupiter.api.Test;
 import pages.JustJoinItPage;
 
@@ -8,10 +8,10 @@ public class JustJoinItTest {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickSignIn();
-        justJoinItPage.clickEmployerProfileSignIn();
+        justJoinItPage.clickCandidateProfileSignIn();
         justJoinItPage.clickSingInByEmail();
-        justJoinItPage.sendEmail(Employer.getEmail());
-        justJoinItPage.sendPassword(Employer.getPassword());
+        justJoinItPage.sendEmail(Candidate.getEmail());
+        justJoinItPage.sendPassword(Candidate.getPassword());
         justJoinItPage.clickSignInButton();
     }
 }

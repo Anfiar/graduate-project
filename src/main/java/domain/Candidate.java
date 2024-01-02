@@ -2,7 +2,7 @@ package domain;
 
 import com.github.javafaker.Faker;
 
-public class Employer {
+public class Candidate {
     public static String getEmail(){
         Faker faker = new Faker();
         return faker.internet().emailAddress();
