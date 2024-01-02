@@ -22,7 +22,9 @@ public class JustJoinItPage {
     public JustJoinItPage() {
         this.driver = MyDriver.getDriver();
     }
-
+    public void getUrl() {
+        driver.get(url);
+    }
     public void clickSignIn() {
         driver.findElement(By.xpath(signIn)).click();
     }
@@ -37,6 +39,14 @@ public class JustJoinItPage {
 
     public void clickSingInByEmail() {
         driver.findElement(By.xpath(singInByEmail)).click();
+    }
+
+    public void sendEmail(String email) {
+        driver.findElement(By.xpath(emailInput)).sendKeys();
+    }
+
+    public void sendPassword(String password) {
+        driver.findElement(By.xpath(passwordInput)).sendKeys();
     }
 
     public void clickSignInButton() {
