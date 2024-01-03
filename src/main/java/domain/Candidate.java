@@ -7,6 +7,10 @@ public class Candidate {
         Faker faker = new Faker();
         return faker.internet().emailAddress();
     }
+    public static String getWrongEmail(){
+        Faker faker = new Faker();
+        return faker.name().username();
+    }
     public static String getPassword(){
         Faker faker = new Faker();
         return faker.internet().password();

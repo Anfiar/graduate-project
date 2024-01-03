@@ -9,22 +9,23 @@ public class JustJoinItPage {
     private String signIn = "//button[text() ='Sign in']";
     private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
     private String employerProfileSignIn = "//p[text() =\"Sign in to Employer's panel\"]";
-
     private String singInByEmail = "//button[text() = 'Sign in using address email']";
-
     private String emailInput = "//*[@id=\":r1:\"]";
     private String passwordInput = "//*[@id=\":r2:\"]";
     private String signInButton = "//button[@type=\"submit\" and text() = \"Sign in\"]";
-
-
+    private String signInError = "//div[@datacy='failed-login-via-mail-snack']//p";
+    private String emailError = "//*[@id=\":r1:-helper-text\"]";
+    private String passwordError = "//*[@id=\":r2:-helper-text\"]";
     private WebDriver driver;
 
     public JustJoinItPage() {
         this.driver = MyDriver.getDriver();
     }
+
     public void getUrl() {
         driver.get(url);
     }
+
     public void clickSignIn() {
         driver.findElement(By.xpath(signIn)).click();
     }
@@ -51,6 +52,17 @@ public class JustJoinItPage {
 
     public void clickSignInButton() {
         driver.findElement(By.xpath(signInButton)).click();
-
     }
+
+    public String getSignInError() {
+        return driver.findElement(By.xpath(signInError)).getText();
+    }
+    public String getEmailError() {
+        return driver.findElement(By.xpath(emailError)).getText();
+    }
+
+    public String getPasswordError() {
+        return driver.findElement(By.xpath(passwordError)).getText();
+    }
+
 }
