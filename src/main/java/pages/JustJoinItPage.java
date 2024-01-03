@@ -12,9 +12,9 @@ public class JustJoinItPage {
 
     private String singInByEmail = "//button[text() = 'Sign in using address email']";
 
-    private String emailInput = "//*[@id=':r1:']";
-    private String passwordInput = "//*[@id=':r2:']";
-    private String signInButton = "//button[@type='submit' and text() = 'Sign in']";
+    private String emailInput = "//*[@id=\":r1:\"]";
+    private String passwordInput = "//*[@id=\":r2:\"]";
+    private String signInButton = "//button[@type=\"submit\" and text() = \"Sign in\"]";
 
 
     private WebDriver driver;
@@ -42,11 +42,11 @@ public class JustJoinItPage {
     }
 
     public void sendEmail(String email) {
-        driver.findElement(By.xpath(emailInput)).sendKeys();
+        driver.findElement(By.xpath(emailInput)).sendKeys(email);
     }
 
     public void sendPassword(String password) {
-        driver.findElement(By.xpath(passwordInput)).sendKeys();
+        driver.findElement(By.xpath(passwordInput)).sendKeys(password);
     }
 
     public void clickSignInButton() {

@@ -1,8 +1,9 @@
 import domain.Candidate;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.JustJoinItPage;
 
-public class JustJoinItTest {
+public class JustJoinItTest extends BaseTest{
     @Test
     public void testEmployerLogin(){
         JustJoinItPage justJoinItPage = new JustJoinItPage();
@@ -13,5 +14,6 @@ public class JustJoinItTest {
         justJoinItPage.sendEmail(Candidate.getEmail());
         justJoinItPage.sendPassword(Candidate.getPassword());
         justJoinItPage.clickSignInButton();
+        //Assertions.assertEquals("","");
     }
 }
