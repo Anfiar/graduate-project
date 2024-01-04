@@ -53,17 +53,21 @@ public class JustJoinItApiTest extends BaseApiTest {
 
     @Test
     public void testLogin5() {
-        String requestBody = "{\n" +
-                "    \"password\": \"qwerqwer\"\n" +
-                "}";
+//        String requestBody = "{\n" +
+//                "    \"password\": \"qwerqwer\"\n" +
+//                "}";
+//
+//        given()
+//                .header("Content-type", "application/json")
+//                .body(requestBody)
+//                .when()
+//                .post("https://profile.justjoin.it/api/justjoinit/authentication/login")
+//                .then()
+//                .assertThat().statusCode(422);
 
-        given()
-                .header("Content-type", "application/json")
-                .body(requestBody)
-                .when()
-                .post("https://profile.justjoin.it/api/justjoinit/authentication/login")
-                .then()
-                .assertThat().statusCode(422);
+        String requestBody = String.valueOf(GenerateJson.getRandomJsonByFields("password"));
+        int statusCode = 422;
+        loginMethod(requestBody, statusCode);
     }
 
     @Test

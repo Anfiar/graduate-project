@@ -4,6 +4,8 @@ import driver.MyDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.awt.*;
+
 public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
     private String signIn = "//button[text() ='Sign in']";
@@ -18,6 +20,7 @@ public class JustJoinItPage {
     private String signInError = "//div[@datacy='failed-login-via-mail-snack']//p";
     private String emailError = "//*[@id=\":r1:-helper-text\"]";
     private String passwordError = "//*[@id=\":r2:-helper-text\"]";
+    private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
 
     public JustJoinItPage() {
@@ -65,6 +68,9 @@ public class JustJoinItPage {
 
     public String getPasswordError() {
         return driver.findElement(By.xpath(passwordError)).getText();
+    }
+    public void sendKeySearchInput(){
+        driver.findElement(By.xpath(searchInput)).sendKeys("Java");
     }
 
 }
