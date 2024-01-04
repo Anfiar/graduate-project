@@ -9,7 +9,9 @@ public class JustJoinItPage {
     private String signIn = "//button[text() ='Sign in']";
     private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
     private String employerProfileSignIn = "//p[text() =\"Sign in to Employer's panel\"]";
+
     private String singInByEmail = "//button[text() = 'Sign in using address email']";
+
     private String emailInput = "//*[@id=\":r1:\"]";
     private String passwordInput = "//*[@id=\":r2:\"]";
     private String signInButton = "//button[@type=\"submit\" and text() = \"Sign in\"]";
