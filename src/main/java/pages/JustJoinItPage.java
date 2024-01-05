@@ -2,6 +2,7 @@ package pages;
 
 import driver.MyDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
@@ -70,7 +71,7 @@ public class JustJoinItPage {
         return driver.findElement(By.xpath(passwordError)).getText();
     }
     public void sendKeySearchInput(String search){
-        driver.findElement(By.xpath(searchInput)).sendKeys(search);
+        driver.findElement(By.xpath(searchInput)).sendKeys(search, Keys.ENTER);
     }
 
 }
