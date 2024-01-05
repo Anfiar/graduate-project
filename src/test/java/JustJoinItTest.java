@@ -56,4 +56,12 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickSignInButton();
         Assertions.assertEquals(testCandidateLoginWithWrongEmailExpectedResult, justJoinItPage.getEmailError());
     }
+    @Test
+    public void testSearch() {
+        JustJoinItPage justJoinItPage = new JustJoinItPage();
+        justJoinItPage.getUrl();
+        justJoinItPage.sendKeySearchInput("Java");
+        Assertions.assertEquals(testCandidateLoginWithWrongEmailExpectedResult, justJoinItPage.getEmailError());
+    }
+
 }

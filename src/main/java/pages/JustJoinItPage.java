@@ -69,8 +69,8 @@ public class JustJoinItPage {
     public String getPasswordError() {
         return driver.findElement(By.xpath(passwordError)).getText();
     }
-    public void sendKeySearchInput(){
-        driver.findElement(By.xpath(searchInput)).sendKeys("Java");
+    public void sendKeySearchInput(String search){
+        driver.findElement(By.xpath(searchInput)).sendKeys(search);
     }
 
 }
