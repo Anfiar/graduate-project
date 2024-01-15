@@ -24,7 +24,7 @@ public class MyDriver {
     }
 
     public static void closeDriver() {
-        driver.close();
+        //driver.close();
         driver.quit();
     }
 
