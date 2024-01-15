@@ -80,4 +80,14 @@ public class JustJoinItPage {
     public String getOfferSize() {
         return driver.findElement(By.xpath("//span[text()=\"52 offers\"]")).getText();
     }
+
+    public void clickTopCompaniesButton(){
+        driver.findElement(By.xpath("//a[text()=\"Top Companies\"]")).click();
+    }
+    public void sendKeySearchCompanyInput(String search){
+        driver.findElement(By.xpath("//input[@placeholder=\"Search company\"]")).sendKeys(search, Keys.ENTER);
+    }
+    public void listOfCompany(){
+        driver.findElements(By.xpath("//*[@id=\"__next\"]/div[2]/div[2]/div/div[2]/ul"));
+    }
 }
