@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import java.awt.*;
+import java.time.Duration;
 
 public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
@@ -63,6 +64,7 @@ public class JustJoinItPage {
     public String getSignInError() {
         return driver.findElement(By.xpath(signInError)).getText();
     }
+
     public String getEmailError() {
         return driver.findElement(By.xpath(emailError)).getText();
     }
@@ -70,8 +72,12 @@ public class JustJoinItPage {
     public String getPasswordError() {
         return driver.findElement(By.xpath(passwordError)).getText();
     }
-    public void sendKeySearchInput(String search){
+
+    public void sendKeySearchInput(String search) {
         driver.findElement(By.xpath(searchInput)).sendKeys(search, Keys.ENTER);
     }
 
+    public String getOfferSize() {
+        return driver.findElement(By.xpath("//span[text()=\"52 offers\"]")).getText();
+    }
 }

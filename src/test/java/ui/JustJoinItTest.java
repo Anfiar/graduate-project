@@ -63,8 +63,9 @@ public class JustJoinItTest extends BaseTest{
     public void testSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
-        justJoinItPage.sendKeySearchInput("Java");
-        Assertions.assertEquals("", "");
+        justJoinItPage.sendKeySearchInput("Senior QA Automation Engineer");
+        String actual = justJoinItPage.getOfferSize();
+        Assertions.assertEquals("52 offers", actual);
     }
 
 }
