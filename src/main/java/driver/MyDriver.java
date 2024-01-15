@@ -10,17 +10,17 @@ public class MyDriver {
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
-        driver = new ChromeDriver();
-        setUp();
+        if (driver == null) {
+            driver = new ChromeDriver();
+            setUp();
+        }
         return driver;
     }
 
-    public static void setUp() {
-        if (driver != null){
+    private static void setUp() {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-        }
     }
 
     public static void closeDriver() {

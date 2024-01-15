@@ -1,7 +1,8 @@
-import domain.Candidate;
+package domain;
+
 import org.json.simple.JSONObject;
 
-public class GenerateJson {
+public class JsonBodyGenerator {
     public static JSONObject getRandomJsonByFields(String email, String password, String otherTag) {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("email", Candidate.getEmail());
@@ -10,7 +11,7 @@ public class GenerateJson {
         return jsonObj;
     }
 
-    public static JSONObject getRandomJsonByFields(String email, String password) {
+    public static JSONObject getRandomJsonByEmailAndPassword() {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("email", Candidate.getEmail());
         jsonObj.put("password", Candidate.getPassword());

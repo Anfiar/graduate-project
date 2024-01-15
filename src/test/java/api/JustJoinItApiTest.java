@@ -1,3 +1,7 @@
+package api;
+
+import api.BaseApiTest;
+import domain.JsonBodyGenerator;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -5,11 +9,7 @@ import static io.restassured.RestAssured.given;
 public class JustJoinItApiTest extends BaseApiTest {
     @Test
     public void testLogin1() {
-//        String requestBody = "{\n" +
-//                "    \"email\": \"qwerwqer@mail.be\",\n" +
-//                "    \"password\": \"qwerqwer\"\n" +
-//                "}";
-        String requestBody = String.valueOf(GenerateJson.getRandomJsonByFields("email", "password"));
+        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByEmailAndPassword());
         int statusCode = 401;
         loginMethod(requestBody, statusCode);
     }
@@ -65,7 +65,7 @@ public class JustJoinItApiTest extends BaseApiTest {
 //                .then()
 //                .assertThat().statusCode(422);
 
-        String requestBody = String.valueOf(GenerateJson.getRandomJsonByFields("password"));
+        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByFields("password"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }

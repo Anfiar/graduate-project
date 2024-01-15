@@ -1,3 +1,5 @@
+package api;
+
 import org.json.simple.JSONObject;
 
 import static io.restassured.RestAssured.given;
