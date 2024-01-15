@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.JustJoinItPage;
 
-public class JustJoinItTest extends BaseTest {
+public class JustJoinItTest extends BaseTest{
     private final String testCandidateLoginExpectedResult = "Wrong email, password or account not verified.";
     private final String testCandidateLoginWithEmptyFieldsExpectedResult = "This field is required.";
     private final String testCandidateLoginWithWrongEmailExpectedResult = "Invalid email address.";
@@ -58,6 +58,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickSignInButton();
         Assertions.assertEquals(testCandidateLoginWithWrongEmailExpectedResult, justJoinItPage.getEmailError());
     }
+
     @Test
     public void testSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();

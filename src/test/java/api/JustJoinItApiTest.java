@@ -1,6 +1,5 @@
 package api;
 
-import api.BaseApiTest;
 import domain.JsonBodyGenerator;
 import org.junit.jupiter.api.Test;
 
