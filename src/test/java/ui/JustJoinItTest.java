@@ -10,6 +10,9 @@ public class JustJoinItTest extends BaseTest{
     private final String testCandidateLoginWithEmptyFieldsExpectedResult = "This field is required.";
     private final String testCandidateLoginWithWrongEmailExpectedResult = "Invalid email address.";
 
+    private final String testPositionSearch = "Senior QA Automation Engineer";
+    private final String testCompanySearch = "Software";
+
     @Test
     public void testCandidateLogin() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
@@ -63,9 +66,8 @@ public class JustJoinItTest extends BaseTest{
     public void testSearch1() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
-        justJoinItPage.sendKeySearchInput("Senior QA Automation Engineer");
-        String actual = justJoinItPage.getOfferSize();
-        Assertions.assertEquals("52 offers", actual);
+        justJoinItPage.sendKeySearchInput(testPositionSearch);
+        Assertions.assertEquals("52 offers", justJoinItPage.getOfferSize());
     }
 
     @Test
@@ -73,7 +75,7 @@ public class JustJoinItTest extends BaseTest{
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
-        justJoinItPage.sendKeySearchCompanyInput("Software");
+        justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         justJoinItPage.listOfCompany();
         //Assertions.assertEquals("52 offers", actual);
 

@@ -24,6 +24,10 @@ public class JustJoinItPage {
     private String passwordError = "//*[@id=\":r2:-helper-text\"]";
     private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
+    private String offerSize = "//span[text()=\"52 offers\"]";
+    private String topCompaniesButton = "//a[text()=\"Top Companies\"]";
+    private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
+    private String listOfCompany = "//span[text()=\"52 offers\"]";
 
     public JustJoinItPage() {
         this.driver = MyDriver.getDriver();
@@ -78,16 +82,18 @@ public class JustJoinItPage {
     }
 
     public String getOfferSize() {
-        return driver.findElement(By.xpath("//span[text()=\"52 offers\"]")).getText();
+        return driver.findElement(By.xpath(offerSize)).getText();
     }
 
-    public void clickTopCompaniesButton(){
-        driver.findElement(By.xpath("//a[text()=\"Top Companies\"]")).click();
+    public void clickTopCompaniesButton() {
+        driver.findElement(By.xpath(topCompaniesButton)).click();
     }
-    public void sendKeySearchCompanyInput(String search){
-        driver.findElement(By.xpath("//input[@placeholder=\"Search company\"]")).sendKeys(search, Keys.ENTER);
+
+    public void sendKeySearchCompanyInput(String search) {
+        driver.findElement(By.xpath(searchCompanyInput)).sendKeys(search, Keys.ENTER);
     }
-    public void listOfCompany(){
-        driver.findElements(By.xpath("//*[@id=\"__next\"]/div[2]/div[2]/div/div[2]/ul"));
+
+    public void listOfCompany() {
+        driver.findElements(By.xpath(listOfCompany));
     }
 }
