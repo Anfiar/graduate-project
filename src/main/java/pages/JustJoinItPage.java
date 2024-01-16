@@ -1,6 +1,8 @@
 package pages;
 
 import driver.MyDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +31,7 @@ public class JustJoinItPage {
     private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
     private String listOfCompany = "//span[text()=\"52 offers\"]";
 
+    private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
     public JustJoinItPage() {
         this.driver = MyDriver.getDriver();
     }
@@ -78,6 +81,7 @@ public class JustJoinItPage {
     }
 
     public void sendKeySearchInput(String search) {
+        logger.info("Find xpath: {}", searchInput);
         driver.findElement(By.xpath(searchInput)).sendKeys(search, Keys.ENTER);
     }
 

@@ -77,6 +77,7 @@ public class JustJoinItTest extends BaseTest{
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         justJoinItPage.listOfCompany();
+
         //Assertions.assertEquals("52 offers", actual);
 
     }
