@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.time.Duration;
@@ -108,6 +110,8 @@ public class JustJoinItPage {
     public void clickTopCompaniesButton() {
         logger.info("startFind");
         logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
         driver.findElement(By.xpath(topCompaniesButton)).click();
     }
 
