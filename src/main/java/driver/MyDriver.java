@@ -1,5 +1,6 @@
 package driver;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,9 +19,10 @@ public class MyDriver {
     }
 
     private static void setUp() {
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
     }
 
     public static void closeDriver() {
