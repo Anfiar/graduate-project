@@ -110,9 +110,10 @@ public class JustJoinItPage {
     public void clickTopCompaniesButton() {
         logger.info("startFind");
         logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
-        driver.findElement(By.xpath(topCompaniesButton)).click();
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
+        //driver.findElement(By.xpath(topCompaniesButton)).click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton))).click();
     }
 
     public void sendKeySearchCompanyInput(String search) {
