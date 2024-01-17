@@ -31,7 +31,7 @@ public class JustJoinItPage {
     private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
     private String offerSize = "//button[@tabindex=\"0\" and @role=\"tab\"]/span";
-    private String topCompaniesButton = "//span/a[text()=\"Top Companies\"]";
+    private String topCompaniesButton = "//div/span/a[text()=\"Top Companies\"]";
     private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
     private String listOfCompany = "//div[@data-page=\"1\"]";
 
