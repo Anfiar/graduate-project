@@ -20,7 +20,7 @@ public class MyDriver {
     private static void setUp() {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-            //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
     }
 
     public static void closeDriver() {
