@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 
 import java.awt.*;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class JustJoinItPage {
@@ -112,5 +114,14 @@ public class JustJoinItPage {
         driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
         return driver.findElements(By.xpath(listOfCompany));
     }
-
+    public List<String> listOfCompany2() {
+        driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
+        List<String> stringList = new ArrayList<>();
+        for (WebElement wb:driver.findElements(By.xpath("//h6"))
+             ) {
+            stringList.add(wb.getText());
+        }
+        Collections.sort(stringList);
+        return stringList;
+    }
 }

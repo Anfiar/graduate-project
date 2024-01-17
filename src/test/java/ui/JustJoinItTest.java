@@ -5,6 +5,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages.JustJoinItPage;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class JustJoinItTest extends BaseTest{
     private final String testCandidateLoginExpectedResult = "Wrong email, password or account not verified.";
     private final String testCandidateLoginWithEmptyFieldsExpectedResult = "This field is required.";
@@ -12,6 +16,7 @@ public class JustJoinItTest extends BaseTest{
 
     private final String testPositionSearch = "Senior QA Automation Engineer";
     private final String testCompanySearch = "Software";
+
 
     @Test
     public void testCandidateLogin() {
@@ -77,5 +82,25 @@ public class JustJoinItTest extends BaseTest{
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
+    }
+    @Test
+    public void testSearch3() {
+        JustJoinItPage justJoinItPage = new JustJoinItPage();
+        justJoinItPage.getUrl();
+        justJoinItPage.clickTopCompaniesButton();
+        justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
+        List<String> expectedList = new ArrayList<>();
+        expectedList.add("Rumble Fish Software Development");
+        expectedList.add("Software Mansion");
+        expectedList.add("SoftwareOne");
+        expectedList.add("The Software House");
+        expectedList.add("BCF Software Sp. z o.o.");
+        expectedList.add("Montrose Software( Polska) Sp.z.o.o");
+        expectedList.add("Sigma Software");
+        expectedList.add("Carl Zeiss IQS Software R&D Center Sp. z o.o.");
+        expectedList.add("MUG Software");
+        expectedList.add("DO OK • Life-changing software services");
+        Collections.sort(expectedList);
+        Assertions.assertEquals(expectedList, justJoinItPage.listOfCompany2());
     }
 }
