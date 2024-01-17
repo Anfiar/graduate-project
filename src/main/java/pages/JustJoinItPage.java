@@ -99,10 +99,12 @@ public class JustJoinItPage {
 
     public String getOfferSize() {
         driver.findElement(By.xpath("//button[text()=\"Subscribe\"]"));
+        logger.info(driver.findElement(By.xpath(offerSize)).getText());
         return driver.findElement(By.xpath(offerSize)).getText();
     }
 
     public void clickTopCompaniesButton() {
+        logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
         driver.findElement(By.xpath(topCompaniesButton)).click();
     }
 
