@@ -6,9 +6,11 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.awt.*;
 import java.time.Duration;
+import java.util.List;
 
 public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
@@ -26,12 +28,13 @@ public class JustJoinItPage {
     private String passwordError = "//*[@id=\":r2:-helper-text\"]";
     private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
-    private String offerSize = "//span[text()=\"52 offers\"]";
+    private String offerSize = "//button[@tabindex=\"0\" and @role=\"tab\"]/span";
     private String topCompaniesButton = "//a[text()=\"Top Companies\"]";
     private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
-    private String listOfCompany = "//span[text()=\"52 offers\"]";
+    private String listOfCompany = "//div[@data-page=\"1\"]";
 
     private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
+
     public JustJoinItPage() {
         this.driver = MyDriver.getDriver();
     }
@@ -85,7 +88,15 @@ public class JustJoinItPage {
         driver.findElement(By.xpath(searchInput)).sendKeys(search, Keys.ENTER);
     }
 
+    public void goToLoginPage() {
+        getUrl();
+        clickSignIn();
+        clickCandidateProfileSignIn();
+        clickSingInByEmail();
+    }
+
     public String getOfferSize() {
+        driver.findElement(By.xpath("//button[text()=\"Subscribe\"]"));
         return driver.findElement(By.xpath(offerSize)).getText();
     }
 
@@ -97,7 +108,9 @@ public class JustJoinItPage {
         driver.findElement(By.xpath(searchCompanyInput)).sendKeys(search, Keys.ENTER);
     }
 
-    public void listOfCompany() {
-        driver.findElements(By.xpath(listOfCompany));
+    public List<WebElement> listOfCompany() {
+        driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
+        return driver.findElements(By.xpath(listOfCompany));
     }
+
 }
