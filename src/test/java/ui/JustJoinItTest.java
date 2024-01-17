@@ -68,25 +68,28 @@ public class JustJoinItTest extends BaseTest{
     }
 
     @Test
-    public void testSearch1() {
+    public void testSearch1() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
+        Thread.sleep(1000);
         Assertions.assertEquals("52 offers", justJoinItPage.getOfferSize());
     }
 
     @Test
-    public void testSearch2() {
+    public void testSearch2() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
+        Thread.sleep(1000);
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
     }
     @Test
-    public void testSearch3() {
+    public void testSearch3() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
+        Thread.sleep(1000);
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         List<String> expectedList = new ArrayList<>();
