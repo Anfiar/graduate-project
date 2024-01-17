@@ -42,7 +42,9 @@ public class JustJoinItPage {
     }
 
     public void getUrl() {
+        logger.info("getURL");
         driver.get(url);
+        logger.info("sendURL");
     }
 
     public void clickSignIn() {
@@ -104,6 +106,7 @@ public class JustJoinItPage {
     }
 
     public void clickTopCompaniesButton() {
+        logger.info("startFind");
         logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
         driver.findElement(By.xpath(topCompaniesButton)).click();
     }
