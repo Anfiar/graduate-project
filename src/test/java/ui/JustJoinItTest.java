@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class JustJoinItTest extends BaseTest{
+public class JustJoinItTest extends BaseTest {
     private final String testCandidateLoginExpectedResult = "Wrong email, password or account not verified.";
     private final String testCandidateLoginWithEmptyFieldsExpectedResult = "This field is required.";
     private final String testCandidateLoginWithWrongEmailExpectedResult = "Invalid email address.";
@@ -76,6 +76,7 @@ public class JustJoinItTest extends BaseTest{
         Thread.sleep(1000);
         Assertions.assertEquals("52 offers", justJoinItPage.getOfferSize());
     }
+
     @Test
     public void testSearch4() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
@@ -83,7 +84,7 @@ public class JustJoinItTest extends BaseTest{
         justJoinItPage.sendKeySearchInput(testPositionSearch);
         Thread.sleep(1000);
         justJoinItPage.getOfferSize2();
-        Assertions.assertTrue(justJoinItPage.getOfferSize2().get(1).findElement(By.xpath("//h2")).getText().contains(testPositionSearch));
+        Assertions.assertTrue(justJoinItPage.getOfferSize2().get(0).findElement(By.xpath("//h2")).getText().contains(testPositionSearch));
     }
 
     @Test
@@ -94,6 +95,21 @@ public class JustJoinItTest extends BaseTest{
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
     }
+
+    @Test
+    public void testSearch5() throws InterruptedException {
+        JustJoinItPage justJoinItPage = new JustJoinItPage();
+        justJoinItPage.getUrl();
+        justJoinItPage.clickTopCompaniesButton();
+        justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
+        Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
+        //Thread.sleep(1000);
+        justJoinItPage.listOfCompany3();
+        Thread.sleep(1000);
+        Assertions.assertEquals(1, justJoinItPage.listOfCompany().size());
+        Assertions.assertTrue(justJoinItPage.listOfCompany().get(0).findElement(By.xpath("//h6")).getText().contains(testCompanySearch));
+    }
+
     @Test
     public void testSearch3() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();

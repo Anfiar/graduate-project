@@ -125,6 +125,9 @@ public class JustJoinItPage {
         driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
         return driver.findElements(By.xpath(listOfCompany));
     }
+    public void listOfCompany3() {
+        driver.findElement(By.xpath("//button[text()=\"Startup\"]")).click();
+    }
     public List<String> listOfCompany2() {
         driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
         List<String> stringList = new ArrayList<>();
