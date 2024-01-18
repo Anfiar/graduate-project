@@ -10,11 +10,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
 import java.time.Duration;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
@@ -106,6 +105,9 @@ public class JustJoinItPage {
         logger.info(driver.findElement(By.xpath(offerSize)).getText());
         return driver.findElement(By.xpath(offerSize)).getText();
     }
+    public List<WebElement> getOfferSize2() {
+        return driver.findElements(By.xpath("//div[@data-test-id=\"virtuoso-item-list\"]/div"));
+    }
 
     public void clickTopCompaniesButton() {
         logger.info("startFind");
@@ -119,7 +121,6 @@ public class JustJoinItPage {
     public void sendKeySearchCompanyInput(String search) {
         driver.findElement(By.xpath(searchCompanyInput)).sendKeys(search, Keys.ENTER);
     }
-
     public List<WebElement> listOfCompany() {
         driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
         return driver.findElements(By.xpath(listOfCompany));

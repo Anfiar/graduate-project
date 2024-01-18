@@ -3,6 +3,7 @@ package ui;
 import domain.Candidate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import pages.JustJoinItPage;
 
 import java.util.ArrayList;
@@ -74,6 +75,15 @@ public class JustJoinItTest extends BaseTest{
         justJoinItPage.sendKeySearchInput(testPositionSearch);
         Thread.sleep(1000);
         Assertions.assertEquals("52 offers", justJoinItPage.getOfferSize());
+    }
+    @Test
+    public void testSearch4() throws InterruptedException {
+        JustJoinItPage justJoinItPage = new JustJoinItPage();
+        justJoinItPage.getUrl();
+        justJoinItPage.sendKeySearchInput(testPositionSearch);
+        Thread.sleep(1000);
+        justJoinItPage.getOfferSize2();
+        Assertions.assertTrue(justJoinItPage.getOfferSize2().get(1).findElement(By.xpath("//h2")).getText().contains(testPositionSearch));
     }
 
     @Test
