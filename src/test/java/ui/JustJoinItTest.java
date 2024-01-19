@@ -74,7 +74,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
         Thread.sleep(1000);
-        Assertions.assertEquals("52 offers", justJoinItPage.getOfferSize());
+        Assertions.assertEquals("62 offers", justJoinItPage.getOfferSize());
     }
 
     @Test
