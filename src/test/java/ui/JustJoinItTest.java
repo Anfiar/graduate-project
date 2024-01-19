@@ -69,16 +69,16 @@ public class JustJoinItTest extends BaseTest {
     }
 
     @Test
-    public void testSearch1() throws InterruptedException {
+    public void testSizeOfOfferByPositionSearch() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
         Thread.sleep(1000);
-        Assertions.assertEquals("62 offers", justJoinItPage.getOfferSize());
+        Assertions.assertEquals("62 offers", justJoinItPage.getGetOfferSize());
     }
 
     @Test
-    public void testSearch4() throws InterruptedException {
+    public void testNameOfFirstOfferByPositionSearch() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
@@ -88,30 +88,30 @@ public class JustJoinItTest extends BaseTest {
     }
 
     @Test
-    public void testSearch2() {
+    public void testSizeOfCompanyByKeyWordSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
-        Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
+        Assertions.assertEquals(10, justJoinItPage.getListOfCompanyByData().size());
     }
 
     @Test
-    public void testSearch5() throws InterruptedException {
+    public void testNameOfFirstCompanyByKeyWordSearch() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
-        Assertions.assertEquals(10, justJoinItPage.listOfCompany().size());
+        Assertions.assertEquals(10, justJoinItPage.getListOfCompanyByData().size());
         //Thread.sleep(1000);
-        justJoinItPage.listOfCompany3();
+        justJoinItPage.clickStartupAsListOfCompany();
         Thread.sleep(1000);
-        Assertions.assertEquals(1, justJoinItPage.listOfCompany().size());
-        Assertions.assertTrue(justJoinItPage.listOfCompany().get(0).findElement(By.xpath("//h6")).getText().contains(testCompanySearch));
+        Assertions.assertEquals(1, justJoinItPage.getListOfCompanyByData().size());
+        Assertions.assertTrue(justJoinItPage.getListOfCompanyByData().get(0).findElement(By.xpath("//h6")).getText().contains(testCompanySearch));
     }
 
     @Test
-    public void testSearch3() {
+    public void testNameOfCompanyListByKeyWordSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
@@ -128,6 +128,6 @@ public class JustJoinItTest extends BaseTest {
         expectedList.add("MUG Software");
         expectedList.add("DO OK • Life-changing software services");
         Collections.sort(expectedList);
-        Assertions.assertEquals(expectedList, justJoinItPage.listOfCompany2());
+        Assertions.assertEquals(expectedList, justJoinItPage.getListOfCompanyByName());
     }
 }
