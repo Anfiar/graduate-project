@@ -88,7 +88,7 @@ public class JustJoinItTest extends BaseTest {
     }
 
     @Test
-    public void testSizeOfCompanyByKeyWordSearch() {
+    public void testSizeOfCompanyByKeyWordSearch() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
@@ -111,7 +111,7 @@ public class JustJoinItTest extends BaseTest {
     }
 
     @Test
-    public void testNameOfCompanyListByKeyWordSearch() {
+    public void testNameOfCompanyListByKeyWordSearch() throws InterruptedException {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();

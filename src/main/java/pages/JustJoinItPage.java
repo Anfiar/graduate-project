@@ -32,7 +32,7 @@ public class JustJoinItPage {
     private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
     private String getOfferSize = "//button[@tabindex=\"0\" and @role=\"tab\"]/span";
-    private String topCompaniesButton = "//a[contains(text(),'Top Companies')]";
+    private String topCompaniesButton = "//span/a[text()='Top Companies']";
     private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
     private String getListOfCompany = "//div[@data-page=\"1\"]";
 
@@ -109,9 +109,10 @@ public class JustJoinItPage {
         return driver.findElements(By.xpath("//div[@data-test-id=\"virtuoso-item-list\"]/div"));
     }
 
-    public void clickTopCompaniesButton() {
+    public void clickTopCompaniesButton() throws InterruptedException {
         logger.info("startFind");
         logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
+        Thread.sleep(400);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
         //driver.findElement(By.xpath(topCompaniesButton)).click();
