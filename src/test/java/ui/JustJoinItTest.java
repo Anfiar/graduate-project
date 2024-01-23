@@ -103,7 +103,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
         Assertions.assertEquals(10, justJoinItPage.getListOfCompanyByData().size());
-        //Thread.sleep(1000);
+        Thread.sleep(1000);
         justJoinItPage.clickStartupAsListOfCompany();
         Thread.sleep(1000);
         Assertions.assertEquals(1, justJoinItPage.getListOfCompanyByData().size());
