@@ -19,7 +19,7 @@ public class MyDriver {
     }
 
     private static void setUp() {
-        driver.manage().window().setSize(new Dimension(1024, 980));
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
     }

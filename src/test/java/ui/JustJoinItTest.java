@@ -1,6 +1,8 @@
 package ui;
 
 import domain.Candidate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -17,7 +19,7 @@ public class JustJoinItTest extends BaseTest {
 
     private final String testPositionSearch = "Senior QA Automation Engineer";
     private final String testCompanySearch = "Software";
-
+    private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
 
     @Test
     public void testCandidateLogin() {
@@ -82,9 +84,12 @@ public class JustJoinItTest extends BaseTest {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         justJoinItPage.getOfferSize2();
-        Assertions.assertTrue(justJoinItPage.getOfferSize2().get(0).findElement(By.xpath("//h2")).getText().contains(testPositionSearch));
+        logger.info(justJoinItPage.getOfferSize2().getFirst().getText());
+        logger.info(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")));
+        logger.info(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")).getText());
+        Assertions.assertTrue(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")).getText().contains(testPositionSearch));
     }
 
     @Test
@@ -107,7 +112,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickStartupAsListOfCompany();
         Thread.sleep(1000);
         Assertions.assertEquals(1, justJoinItPage.getListOfCompanyByData().size());
-        Assertions.assertTrue(justJoinItPage.getListOfCompanyByData().get(0).findElement(By.xpath("//h6")).getText().contains(testCompanySearch));
+        Assertions.assertTrue(justJoinItPage.getListOfCompanyByData().getFirst().findElement(By.xpath(".//h6")).getText().contains(testCompanySearch));
     }
 
     @Test
