@@ -115,8 +115,9 @@ public class JustJoinItPage {
         Thread.sleep(400);
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
-        //driver.findElement(By.xpath(topCompaniesButton)).click();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(topCompaniesButton))).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.findElement(By.xpath(topCompaniesButton)).click();
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(topCompaniesButton))).click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
         //driver.findElement(By.xpath(topCompaniesButton)).click();
     }
