@@ -32,7 +32,7 @@ public class JustJoinItPage {
     private String searchInput = "//input[@placeholder=\"Search\"]";
     private WebDriver driver;
     private String getOfferSize = "//button[@tabindex=\"0\" and @role=\"tab\"]/span";
-    private String topCompaniesButton = "//*[@id=\"__next\"]/div[2]/div[1]/header/div/div/div[3]/li[2]/div";
+    private String topCompaniesButton = "//a[@class=\"header_brandStory_link\"]";
     private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
     private String getListOfCompany = "//div[@data-page=\"1\"]";
 
