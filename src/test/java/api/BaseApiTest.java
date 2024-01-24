@@ -1,11 +1,5 @@
 package api;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
-
-import java.net.URISyntaxException;
-
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {

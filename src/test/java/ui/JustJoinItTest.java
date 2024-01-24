@@ -16,18 +16,16 @@ public class JustJoinItTest extends BaseTest {
     private final String testCandidateLoginExpectedResult = "Wrong email, password or account not verified.";
     private final String testCandidateLoginWithEmptyFieldsExpectedResult = "This field is required.";
     private final String testCandidateLoginWithWrongEmailExpectedResult = "Invalid email address.";
-
+    private final String testSizeOfOfferByPositionSearchExpectedResult = "62 offers";
+    private final int testSizeOfCompanyByKeyWordSearchExpectedResult = 10;
     private final String testPositionSearch = "Senior QA Automation Engineer";
     private final String testCompanySearch = "Software";
-    private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
+    private static final Logger logger = LogManager.getLogger(JustJoinItTest.class);
 
     @Test
     public void testCandidateLogin() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
-        justJoinItPage.getUrl();
-        justJoinItPage.clickSignIn();
-        justJoinItPage.clickCandidateProfileSignIn();
-        justJoinItPage.clickSingInByEmail();
+        justJoinItPage.goToLoginPage();
         justJoinItPage.sendEmail(Candidate.getEmail());
         justJoinItPage.sendPassword(Candidate.getPassword());
         justJoinItPage.clickSignInButton();
@@ -37,10 +35,7 @@ public class JustJoinItTest extends BaseTest {
     @Test
     public void testCandidateLoginWithEmptyPassword() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
-        justJoinItPage.getUrl();
-        justJoinItPage.clickSignIn();
-        justJoinItPage.clickCandidateProfileSignIn();
-        justJoinItPage.clickSingInByEmail();
+        justJoinItPage.goToLoginPage();
         justJoinItPage.sendEmail(Candidate.getEmail());
         justJoinItPage.clickSignInButton();
         Assertions.assertEquals(testCandidateLoginWithEmptyFieldsExpectedResult, justJoinItPage.getPasswordError());
@@ -49,10 +44,7 @@ public class JustJoinItTest extends BaseTest {
     @Test
     public void testCandidateLoginWithEmptyLogin() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
-        justJoinItPage.getUrl();
-        justJoinItPage.clickSignIn();
-        justJoinItPage.clickCandidateProfileSignIn();
-        justJoinItPage.clickSingInByEmail();
+        justJoinItPage.goToLoginPage();
         justJoinItPage.sendPassword(Candidate.getPassword());
         justJoinItPage.clickSignInButton();
         Assertions.assertEquals(testCandidateLoginWithEmptyFieldsExpectedResult, justJoinItPage.getEmailError());
@@ -61,62 +53,53 @@ public class JustJoinItTest extends BaseTest {
     @Test
     public void testCandidateLoginWithWrongLogin() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
-        justJoinItPage.getUrl();
-        justJoinItPage.clickSignIn();
-        justJoinItPage.clickCandidateProfileSignIn();
-        justJoinItPage.clickSingInByEmail();
+        justJoinItPage.goToLoginPage();
         justJoinItPage.sendEmail(Candidate.getWrongEmail());
         justJoinItPage.clickSignInButton();
         Assertions.assertEquals(testCandidateLoginWithWrongEmailExpectedResult, justJoinItPage.getEmailError());
     }
 
     @Test
-    public void testSizeOfOfferByPositionSearch() throws InterruptedException {
+    public void testSizeOfOfferByPositionSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
-        Thread.sleep(1000);
-        Assertions.assertEquals("62 offers", justJoinItPage.getGetOfferSize());
+        Assertions.assertEquals(testSizeOfOfferByPositionSearchExpectedResult, justJoinItPage.getGetOfferSize());
     }
 
     @Test
-    public void testNameOfFirstOfferByPositionSearch() throws InterruptedException {
+    public void testNameOfFirstOfferByPositionSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
-        Thread.sleep(3000);
-        justJoinItPage.getOfferSize2();
-        logger.info(justJoinItPage.getOfferSize2().getFirst().getText());
-        logger.info(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")));
-        logger.info(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")).getText());
-        Assertions.assertTrue(justJoinItPage.getOfferSize2().getFirst().findElement(By.xpath(".//h2")).getText().contains(testPositionSearch));
+        justJoinItPage.getOfferSizeListByPositionSearch();
+        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().getText());
+        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(".//h2")));
+        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(".//h2")).getText());
+        Assertions.assertTrue(justJoinItPage.getFirstPositionName().contains(testPositionSearch));
     }
 
     @Test
-    public void testSizeOfCompanyByKeyWordSearch() throws InterruptedException {
+    public void testSizeOfCompanyByKeyWordSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
-        Assertions.assertEquals(10, justJoinItPage.getListOfCompanyByData().size());
+        Assertions.assertEquals(testSizeOfCompanyByKeyWordSearchExpectedResult, justJoinItPage.getListOfCompanyByData().size());
     }
 
     @Test
-    public void testNameOfFirstCompanyByKeyWordSearch() throws InterruptedException {
+    public void testNameOfFirstCompanyByKeyWordSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(testCompanySearch);
-        Assertions.assertEquals(10, justJoinItPage.getListOfCompanyByData().size());
-        //Thread.sleep(1000);
         justJoinItPage.clickStartupAsListOfCompany();
-        Thread.sleep(1000);
-        Assertions.assertEquals(1, justJoinItPage.getListOfCompanyByData().size());
-        Assertions.assertTrue(justJoinItPage.getListOfCompanyByData().getFirst().findElement(By.xpath(".//h6")).getText().contains(testCompanySearch));
+        Assertions.assertTrue(justJoinItPage.getFirstCompanyName().contains(testCompanySearch));
     }
 
     @Test
-    public void testNameOfCompanyListByKeyWordSearch() throws InterruptedException {
+    public void testNameOfCompanyListByKeyWordSearch() {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();

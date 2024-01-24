@@ -19,23 +19,25 @@ public class JustJoinItPage {
     private final String url = "https://justjoin.it/";
     private String signIn = "//button[text() ='Sign in']";
     private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
-    private String employerProfileSignIn = "//p[text() =\"Sign in to Employer's panel\"]";
-
     private String singInByEmail = "//button[text() = 'Sign in using address email']";
-
-    private String emailInput = "//*[@id=\":r1:\"]";
-    private String passwordInput = "//*[@id=\":r2:\"]";
-    private String signInButton = "//button[@type=\"submit\" and text() = \"Sign in\"]";
+    private String emailInput = "//*[@id=':r1:']";
+    private String passwordInput = "//*[@id=':r2:']";
+    private String signInButton = "//button[@type='submit' and text() = 'Sign in']";
     private String signInError = "//div[@datacy='failed-login-via-mail-snack']//p";
-    private String emailError = "//*[@id=\":r1:-helper-text\"]";
-    private String passwordError = "//*[@id=\":r2:-helper-text\"]";
-    private String searchInput = "//input[@placeholder=\"Search\"]";
+    private String emailError = "//*[@id=':r1:-helper-text']";
+    private String passwordError = "//*[@id=':r2:-helper-text']";
+    private String searchInput = "//input[@placeholder='Search']";
     private WebDriver driver;
-    private String getOfferSize = "//button[@tabindex=\"0\" and @role=\"tab\"]/span";
-    private String topCompaniesButton = "//a[@class=\"header_brandStory_link\"]";
-    private String searchCompanyInput = "//input[@placeholder=\"Search company\"]";
-    private String getListOfCompany = "//div[@data-page=\"1\"]";
-
+    private String getOfferSize = "//button[@tabindex='0' and @role='tab']/span";
+    private String topCompaniesButton = "//a[@class='header_brandStory_link']";
+    private String searchCompanyInput = "//input[@placeholder='Search company']";
+    private String getListOfCompany = "//div[@data-page='1']";
+    private String subscribeButton = "//button[text()='Subscribe']";
+    private String startupButton = "//button[text()='Startup']";
+    private String getOfferRecord = "//div[@data-test-id=\"virtuoso-item-list\"]/div";
+    private String getOfferRecordList = "//div[@style=\"display: block;\"]";
+    private String getCompanyName = ".//h6";
+    private String getPositionName = ".//h2";
     private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
 
     public JustJoinItPage() {
@@ -54,10 +56,6 @@ public class JustJoinItPage {
 
     public void clickCandidateProfileSignIn() {
         driver.findElement(By.xpath(candidateProfileSignIn)).click();
-    }
-
-    public void clickEmployerProfileSignIn() {
-        driver.findElement(By.xpath(employerProfileSignIn)).click();
     }
 
     public void clickSingInByEmail() {
@@ -89,7 +87,6 @@ public class JustJoinItPage {
     }
 
     public void sendKeySearchInput(String search) {
-        logger.info("Find xpath: {}", searchInput);
         driver.findElement(By.xpath(searchInput)).sendKeys(search, Keys.ENTER);
     }
 
@@ -101,49 +98,55 @@ public class JustJoinItPage {
     }
 
     public String getGetOfferSize() {
-        driver.findElement(By.xpath("//button[text()=\"Subscribe\"]"));
-        logger.warn(driver.findElement(By.xpath(getOfferSize)).getText());
+
+        driver.findElement(By.xpath(subscribeButton));
+        logger.info(driver.findElement(By.xpath(getOfferSize)).getText());
         return driver.findElement(By.xpath(getOfferSize)).getText();
     }
-    public List<WebElement> getOfferSize2() {
-        return driver.findElements(By.xpath("//div[@data-test-id=\"virtuoso-item-list\"]/div"));
+
+    public List<WebElement> getOfferSizeListByPositionSearch() {
+        return driver.findElements(By.xpath(getOfferRecord));
     }
 
-    public void clickTopCompaniesButton() throws InterruptedException {
+    public void clickTopCompaniesButton() {
         logger.info("startFind");
-
-        Thread.sleep(400);
-        driver.findElement(By.xpath(getOfferSize));
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        logger.info(new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton))));
-        logger.info(driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[1]/div[2]/div/div/div[1]/div[1]/div/div/button[2]/span")).getText());
-        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[1]/div[2]/div/div/div[1]/div[1]/div/div/button[2]/span"));
         driver.findElement(By.xpath(topCompaniesButton)).click();
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(topCompaniesButton))).click();
-        //;
-        //driver.findElement(By.xpath(topCompaniesButton)).click();
     }
 
     public void sendKeySearchCompanyInput(String search) {
+        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(searchCompanyInput))).sendKeys(search, Keys.ENTER);
         driver.findElement(By.xpath(searchCompanyInput)).sendKeys(search, Keys.ENTER);
     }
+
     public List<WebElement> getListOfCompanyByData() {
-        driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
+
+        driver.findElement(By.xpath(getOfferRecordList));
         return driver.findElements(By.xpath(getListOfCompany));
     }
+
     public void clickStartupAsListOfCompany() {
-        driver.findElement(By.xpath("//button[text()=\"Startup\"]")).click();
+        driver.findElement(By.xpath(startupButton)).click();
     }
+
     public List<String> getListOfCompanyByName() {
-        driver.findElement(By.xpath("//div[@style=\"display: block;\"]"));
+        driver.findElement(By.xpath(getOfferRecordList));
         List<String> stringList = new ArrayList<>();
-        for (WebElement wb:driver.findElements(By.xpath("//h6"))
-             ) {
+        for (WebElement wb : driver.findElements(By.xpath(getCompanyName))
+        ) {
             stringList.add(wb.getText());
         }
         Collections.sort(stringList);
         return stringList;
     }
+
+    public String getFirstCompanyName() {
+        return getListOfCompanyByData().getFirst().findElement(By.xpath(getCompanyName)).getText();
+    }
+
+    public String getFirstPositionName() {
+        return getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(getPositionName)).getText();
+
+    }
 }
+
+
