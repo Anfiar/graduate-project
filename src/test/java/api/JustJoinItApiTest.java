@@ -1,15 +1,20 @@
 package api;
 
 import domain.JsonBodyGenerator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
+import pages.JustJoinItPage;
 
 import static io.restassured.RestAssured.given;
 
 public class JustJoinItApiTest extends BaseApiTest {
+    private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
     @Test
     public void testLogin1() {
         String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByEmailAndPassword());
         int statusCode = 401;
+        logger.info("requestBody:" + requestBody);
         loginMethod(requestBody, statusCode);
     }
 
