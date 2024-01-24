@@ -111,12 +111,14 @@ public class JustJoinItPage {
 
     public void clickTopCompaniesButton() throws InterruptedException {
         logger.info("startFind");
-        logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
+
         Thread.sleep(400);
         driver.findElement(By.xpath(getOfferSize));
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        logger.info(driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[1]/div[2]/div/div/div[1]/div[1]/div/div/button[2]/span")).getText());
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div[2]/div/div[1]/div[2]/div/div/div[1]/div[1]/div/div/button[2]/span"));
         driver.findElement(By.xpath(topCompaniesButton)).click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(topCompaniesButton))).click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
