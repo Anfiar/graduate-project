@@ -113,9 +113,10 @@ public class JustJoinItPage {
         logger.info("startFind");
         logger.info(driver.findElement(By.xpath(topCompaniesButton)).getText());
         Thread.sleep(400);
+        driver.findElement(By.xpath(getOfferSize));
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         //wait.until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.findElement(By.xpath(topCompaniesButton)).click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(topCompaniesButton))).click();
         //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath(topCompaniesButton)));
