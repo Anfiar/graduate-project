@@ -32,7 +32,7 @@ public class JustJoinItPage {
     private String topCompaniesButton = "//a[@class='header_brandStory_link']";
     private String searchCompanyInput = "//input[@placeholder='Search company']";
     private String getListOfCompany = "//div[@data-page='1']";
-    private String subscribeButton = "//button[text()='Subscribe']";
+    private String turnEmailNotification = "//button[@name=\"job_alerts_banner_save_button\"]";
     private String startupButton = "//button[text()='Startup']";
     private String getOfferRecord = "//div[@data-test-id=\"virtuoso-item-list\"]/div";
     private String getOfferRecordList = "//div[@style=\"display: block;\"]";
@@ -98,7 +98,7 @@ public class JustJoinItPage {
     }
 
     public String getGetOfferSize() {
-        driver.findElement(By.xpath(subscribeButton));
+        driver.findElement(By.xpath(turnEmailNotification));
         logger.info(driver.findElement(By.xpath(getOfferSize)).getText());
         return driver.findElement(By.xpath(getOfferSize)).getText();
     }
