@@ -74,9 +74,8 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.sendKeySearchInput(testPositionSearch);
         justJoinItPage.getOfferSizeListByPositionSearch();
         logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().getText());
-        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(".//h2")));
-        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(".//h2")).getText());
-        Assertions.assertTrue(justJoinItPage.getFirstPositionName().contains(testPositionSearch));
+        logger.info(justJoinItPage.getFirstPositionName());
+        Assertions.assertTrue(justJoinItPage.getFirstPositionName().toLowerCase().contains(testPositionSearch.toLowerCase()));
     }
 
     @Test

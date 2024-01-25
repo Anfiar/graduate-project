@@ -98,7 +98,6 @@ public class JustJoinItPage {
     }
 
     public String getGetOfferSize() {
-
         driver.findElement(By.xpath(subscribeButton));
         logger.info(driver.findElement(By.xpath(getOfferSize)).getText());
         return driver.findElement(By.xpath(getOfferSize)).getText();
