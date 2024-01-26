@@ -1,4 +1,4 @@
-package domain;
+package by.itacademy.kishkevich.justjoinitproject.domain;
 
 import com.github.javafaker.Faker;
 

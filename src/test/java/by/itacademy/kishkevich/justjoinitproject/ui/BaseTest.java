@@ -1,6 +1,6 @@
-package ui;
+package by.itacademy.kishkevich.justjoinitproject.ui;
 
-import driver.MyDriver;
+import by.itacademy.kishkevich.justjoinitproject.driver.MyDriver;
 import org.junit.jupiter.api.AfterAll;
 
 public class BaseTest {

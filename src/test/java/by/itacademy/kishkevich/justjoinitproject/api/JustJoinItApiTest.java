@@ -1,6 +1,6 @@
-package api;
+package by.itacademy.kishkevich.justjoinitproject.api;
 
-import domain.JsonBodyGenerator;
+import by.itacademy.kishkevich.justjoinitproject.domain.JsonBodyGenerator;
 import org.junit.jupiter.api.Test;
 
 public class JustJoinItApiTest extends BaseApiTest {

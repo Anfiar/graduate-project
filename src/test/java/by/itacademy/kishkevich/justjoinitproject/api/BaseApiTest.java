@@ -1,4 +1,4 @@
-package api;
+package by.itacademy.kishkevich.justjoinitproject.api;
 
 import static io.restassured.RestAssured.given;
 

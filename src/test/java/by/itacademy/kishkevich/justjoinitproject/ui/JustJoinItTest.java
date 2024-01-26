@@ -1,11 +1,11 @@
-package ui;
+package by.itacademy.kishkevich.justjoinitproject.ui;
 
-import domain.Candidate;
+import by.itacademy.kishkevich.justjoinitproject.domain.Candidate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.JustJoinItPage;
+import by.itacademy.kishkevich.justjoinitproject.pages.JustJoinItPage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
