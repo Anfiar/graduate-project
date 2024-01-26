@@ -5,9 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import pages.JustJoinItPage;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -64,7 +62,7 @@ public class JustJoinItTest extends BaseTest {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
-        Assertions.assertEquals(testSizeOfOfferByPositionSearchExpectedResult, justJoinItPage.getGetOfferSize());
+        Assertions.assertEquals(testSizeOfOfferByPositionSearchExpectedResult, justJoinItPage.getOfferSize());
     }
 
     @Test
@@ -72,8 +70,8 @@ public class JustJoinItTest extends BaseTest {
         JustJoinItPage justJoinItPage = new JustJoinItPage();
         justJoinItPage.getUrl();
         justJoinItPage.sendKeySearchInput(testPositionSearch);
-        justJoinItPage.getOfferSizeListByPositionSearch();
-        logger.info(justJoinItPage.getOfferSizeListByPositionSearch().getFirst().getText());
+        justJoinItPage.getOffersListByPositionSearch();
+        logger.info(justJoinItPage.getOffersListByPositionSearch().getFirst().getText());
         logger.info(justJoinItPage.getFirstPositionName());
         Assertions.assertTrue(justJoinItPage.getFirstPositionName().toLowerCase().contains(testPositionSearch.toLowerCase()));
     }

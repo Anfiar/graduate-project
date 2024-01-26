@@ -7,10 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,16 +25,16 @@ public class JustJoinItPage {
     private String passwordError = "//*[@id=':r2:-helper-text']";
     private String searchInput = "//input[@placeholder='Search']";
     private WebDriver driver;
-    private String getOfferSize = "//button[@tabindex='0' and @role='tab']/span";
+    private String OfferSize = "//button[@tabindex='0' and @role='tab']/span";
     private String topCompaniesButton = "//a[@class='header_brandStory_link']";
     private String searchCompanyInput = "//input[@placeholder='Search company']";
-    private String getListOfCompany = "//div[@data-page='1']";
+    private String listOfCompany = "//div[@data-page='1']";
     private String turnEmailNotification = "//button[@name=\"job_alerts_banner_save_button\"]";
     private String startupButton = "//button[text()='Startup']";
-    private String getOfferRecord = "//div[@data-test-id=\"virtuoso-item-list\"]/div";
-    private String getOfferRecordList = "//div[@style=\"display: block;\"]";
-    private String getCompanyName = ".//h6";
-    private String getPositionName = ".//h2";
+    private String offerRecord = "//div[@data-test-id=\"virtuoso-item-list\"]/div";
+    private String afterSearchCompanyDiv = "//div[@style=\"display: block;\"]";
+    private String companyName = ".//h6";
+    private String positionName = ".//h2";
     private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
 
     public JustJoinItPage() {
@@ -97,14 +94,14 @@ public class JustJoinItPage {
         clickSingInByEmail();
     }
 
-    public String getGetOfferSize() {
+    public String getOfferSize() {
         driver.findElement(By.xpath(turnEmailNotification));
-        logger.info(driver.findElement(By.xpath(getOfferSize)).getText());
-        return driver.findElement(By.xpath(getOfferSize)).getText();
+        logger.info(driver.findElement(By.xpath(OfferSize)).getText());
+        return driver.findElement(By.xpath(OfferSize)).getText();
     }
 
-    public List<WebElement> getOfferSizeListByPositionSearch() {
-        return driver.findElements(By.xpath(getOfferRecord));
+    public List<WebElement> getOffersListByPositionSearch() {
+        return driver.findElements(By.xpath(offerRecord));
     }
 
     public void clickTopCompaniesButton() {
@@ -113,14 +110,12 @@ public class JustJoinItPage {
     }
 
     public void sendKeySearchCompanyInput(String search) {
-        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(searchCompanyInput))).sendKeys(search, Keys.ENTER);
         driver.findElement(By.xpath(searchCompanyInput)).sendKeys(search, Keys.ENTER);
     }
 
     public List<WebElement> getListOfCompanyByData() {
-
-        driver.findElement(By.xpath(getOfferRecordList));
-        return driver.findElements(By.xpath(getListOfCompany));
+        driver.findElement(By.xpath(afterSearchCompanyDiv));
+        return driver.findElements(By.xpath(listOfCompany));
     }
 
     public void clickStartupAsListOfCompany() {
@@ -128,9 +123,9 @@ public class JustJoinItPage {
     }
 
     public List<String> getListOfCompanyByName() {
-        driver.findElement(By.xpath(getOfferRecordList));
+        driver.findElement(By.xpath(afterSearchCompanyDiv));
         List<String> stringList = new ArrayList<>();
-        for (WebElement wb : driver.findElements(By.xpath(getCompanyName))
+        for (WebElement wb : driver.findElements(By.xpath(companyName))
         ) {
             stringList.add(wb.getText());
         }
@@ -139,11 +134,11 @@ public class JustJoinItPage {
     }
 
     public String getFirstCompanyName() {
-        return getListOfCompanyByData().getFirst().findElement(By.xpath(getCompanyName)).getText();
+        return getListOfCompanyByData().getFirst().findElement(By.xpath(companyName)).getText();
     }
 
     public String getFirstPositionName() {
-        return getOfferSizeListByPositionSearch().getFirst().findElement(By.xpath(getPositionName)).getText();
+        return getOffersListByPositionSearch().getFirst().findElement(By.xpath(positionName)).getText();
 
     }
 }
