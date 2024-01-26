@@ -29,10 +29,10 @@ public class JustJoinItPage {
     private String topCompaniesButton = "//a[@class='header_brandStory_link']";
     private String searchCompanyInput = "//input[@placeholder='Search company']";
     private String listOfCompany = "//div[@data-page='1']";
-    private String turnEmailNotification = "//button[@name=\"job_alerts_banner_save_button\"]";
+    private String turnEmailNotification = "//button[@name='job_alerts_banner_save_button']";
     private String startupButton = "//button[text()='Startup']";
-    private String offerRecord = "//div[@data-test-id=\"virtuoso-item-list\"]/div";
-    private String afterSearchCompanyDiv = "//div[@style=\"display: block;\"]";
+    private String offerRecord = "//div[@data-test-id='virtuoso-item-list']/div";
+    private String afterSearchCompanyDiv = "//div[@style='display: block;']";
     private String companyName = ".//h6";
     private String positionName = ".//h2";
     private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
