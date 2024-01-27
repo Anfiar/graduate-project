@@ -35,7 +35,7 @@ public class JustJoinItPage {
     private String afterSearchCompanyDiv = "//div[@style='display: block;']";
     private String companyName = ".//h6";
     private String positionName = ".//h2";
-    private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
+    private static final Logger logger = LogManager.getLogger();
 
     public JustJoinItPage() {
         this.driver = Driver.getDriver();

@@ -22,7 +22,7 @@ public class JustJoinItTest extends BaseTest {
     private final String SOLUTION_COMPANY = "Solution";
     private final String BANK_COMPANY = "Bank";
 
-    private static final Logger logger = LogManager.getLogger(JustJoinItTest.class);
+    private static final Logger logger = LogManager.getLogger();
 
     @Test
     public void testCandidateLogin() {
