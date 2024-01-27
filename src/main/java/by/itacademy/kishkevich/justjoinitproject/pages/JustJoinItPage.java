@@ -39,9 +39,11 @@ public class JustJoinItPage {
 
     public JustJoinItPage() {
         this.driver = Driver.getDriver();
+        logger.info("Create WebDriver");
     }
 
     public void getUrl() {
+
         logger.info("Open URL:" + url);
         driver.get(url);
     }
