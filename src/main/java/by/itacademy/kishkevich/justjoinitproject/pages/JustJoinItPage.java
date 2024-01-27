@@ -43,7 +43,6 @@ public class JustJoinItPage {
     }
 
     public void getUrl() {
-
         logger.info("Open URL:" + url);
         driver.get(url);
     }

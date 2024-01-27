@@ -4,22 +4,18 @@ import com.github.javafaker.Faker;
 
 public class Candidate {
     public static String getEmail() {
-        Faker faker = new Faker();
-        return faker.internet().emailAddress();
+        return new Faker().internet().emailAddress();
     }
 
     public static String getWrongEmail() {
-        Faker faker = new Faker();
-        return faker.name().username();
+        return new Faker().name().username();
     }
 
     public static String getPassword() {
-        Faker faker = new Faker();
-        return faker.internet().password();
+        return new Faker().internet().password();
     }
 
     public static int getNumber() {
-        Faker faker = new Faker();
-        return faker.random().nextInt(1000);
+        return new Faker().random().nextInt(1000);
     }
 }

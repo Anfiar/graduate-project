@@ -1,9 +1,12 @@
 package by.itacademy.kishkevich.justjoinitproject.api;
 
+import by.itacademy.kishkevich.justjoinitproject.domain.JsonBodyGenerator;
+
 import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
     private static final String URL = "https://profile.justjoin.it/api/justjoinit/authentication/login";
+    public static JsonBodyGenerator jsonBodyGenerator = new JsonBodyGenerator();
 
     public static void loginMethod(String getBody, int getStatusCode) {
         given()

@@ -1,19 +1,18 @@
 package by.itacademy.kishkevich.justjoinitproject.api;
 
-import by.itacademy.kishkevich.justjoinitproject.domain.JsonBodyGenerator;
 import org.junit.jupiter.api.Test;
 
 public class JustJoinItApiTest extends BaseApiTest {
     @Test
     public void testLogin() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByEmailAndPassword());
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonByEmailAndPassword());
         int statusCode = 401;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithAdditionalField() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithAdditionalField());
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithAdditionalField());
         int statusCode = 401;
         loginMethod(requestBody, statusCode);
     }
@@ -27,70 +26,70 @@ public class JustJoinItApiTest extends BaseApiTest {
 
     @Test
     public void testLoginWithEmptyJsonBody() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getEmptyRandomJson());
+        String requestBody = String.valueOf(jsonBodyGenerator.getEmptyRandomJson());
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginOnlyWithPassword() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithOneField("password"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithOneField("password"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithWrongEmailAndPassword() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithIncorrectValueOfField());
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithIncorrectValueOfField());
         int statusCode = 401;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithIntegerEmailValue() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithIntegerValueOfField("email"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithIntegerValueOfField("email"));
         int statusCode = 415;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithIntegerValueOfField() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithIntegerValueOfField("both"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithIntegerValueOfField("both"));
         int statusCode = 415;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithNullValueOfField() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithNullValueOfField());
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithNullValueOfField());
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginOnlyWithEmail() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithOneField("email"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithOneField("email"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithEmptyValue() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("both"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("both"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithEmptyPassword() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("password"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("password"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
 
     @Test
     public void testLoginWithEmptyEmail() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("email"));
+        String requestBody = String.valueOf(jsonBodyGenerator.getRandomJsonWithSomeEmptyValueOfField("email"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
