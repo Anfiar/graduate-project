@@ -67,11 +67,11 @@ public class JsonBodyGenerator {
         return jsonObj;
     }
 
-    public static JSONObject getRandomJsonByFields(String field) {
+    public static JSONObject getRandomJsonWithOneField(String field) {
         JSONObject jsonObj = new JSONObject();
         if (field == "email") {
             jsonObj.put("email", Candidate.getEmail());
-        } else {
+        } else if (field == "password") {
             jsonObj.put("password", Candidate.getPassword());
         }
         return jsonObj;

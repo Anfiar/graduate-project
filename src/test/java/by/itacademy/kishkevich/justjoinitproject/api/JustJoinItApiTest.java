@@ -34,7 +34,7 @@ public class JustJoinItApiTest extends BaseApiTest {
 
     @Test
     public void testLoginOnlyWithPassword() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByFields("password"));
+        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithOneField("password"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
@@ -69,7 +69,7 @@ public class JustJoinItApiTest extends BaseApiTest {
 
     @Test
     public void testLoginOnlyWithEmail() {
-        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonByFields("email"));
+        String requestBody = String.valueOf(JsonBodyGenerator.getRandomJsonWithOneField("email"));
         int statusCode = 422;
         loginMethod(requestBody, statusCode);
     }
