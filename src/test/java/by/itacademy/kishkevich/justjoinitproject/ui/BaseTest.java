@@ -3,7 +3,6 @@ package by.itacademy.kishkevich.justjoinitproject.ui;
 import by.itacademy.kishkevich.justjoinitproject.driver.Driver;
 import by.itacademy.kishkevich.justjoinitproject.pages.JustJoinItPage;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
@@ -14,8 +13,8 @@ public class BaseTest {
         justJoinItPage = new JustJoinItPage();
     }
 
-    @AfterEach
-    public void quit() {
-        Driver.closeDriver();
+    @AfterAll
+    public static void quit() {
+        Driver.quitDriver();
     }
 }
