@@ -63,7 +63,6 @@ public class JustJoinItTest extends BaseTest {
     public void testNameOfFirstOfferByPositionSearch() {
         justJoinItPage.getUrl();
         justJoinItPage.sendKeyPositionSearchInput(SENIOR_QA_AUTOMATION_ENGINEER_POSITION);
-        justJoinItPage.getOffersListByPositionSearch();
         Assertions.assertTrue(justJoinItPage.getFirstPositionName().toLowerCase().contains(SENIOR_QA_AUTOMATION_ENGINEER_POSITION.toLowerCase()));
     }
 

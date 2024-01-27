@@ -108,6 +108,7 @@ public class JustJoinItPage {
 
     public List<WebElement> getOffersListByPositionSearch() {
         logger.info("Get offer list");
+        driver.findElement(By.xpath(turnEmailNotification));
         return driver.findElements(By.xpath(offerRecord));
     }
 
