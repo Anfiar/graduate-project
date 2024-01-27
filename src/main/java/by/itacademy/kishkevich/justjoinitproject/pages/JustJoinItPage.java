@@ -1,6 +1,6 @@
 package by.itacademy.kishkevich.justjoinitproject.pages;
 
-import by.itacademy.kishkevich.justjoinitproject.driver.MyDriver;
+import by.itacademy.kishkevich.justjoinitproject.driver.Driver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class JustJoinItPage {
+    private WebDriver driver;
     private final String url = "https://justjoin.it/";
     private String signIn = "//button[text() ='Sign in']";
     private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
@@ -24,7 +25,6 @@ public class JustJoinItPage {
     private String emailError = "//*[@id=':r1:-helper-text']";
     private String passwordError = "//*[@id=':r2:-helper-text']";
     private String searchInput = "//input[@placeholder='Search']";
-    private WebDriver driver;
     private String OfferSize = "//button[@tabindex='0' and @role='tab']/span";
     private String topCompaniesButton = "//a[@class='header_brandStory_link']";
     private String searchCompanyInput = "//input[@placeholder='Search company']";
@@ -38,7 +38,7 @@ public class JustJoinItPage {
     private static final Logger logger = LogManager.getLogger(JustJoinItPage.class);
 
     public JustJoinItPage() {
-        this.driver = MyDriver.getDriver();
+        this.driver = Driver.getDriver();
     }
 
     public void getUrl() {
