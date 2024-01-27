@@ -2,11 +2,9 @@ package by.itacademy.kishkevich.justjoinitproject.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 
 public class Driver {
-
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
