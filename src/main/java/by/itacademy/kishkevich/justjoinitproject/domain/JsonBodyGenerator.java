@@ -5,7 +5,7 @@ import org.json.simple.JSONObject;
 import static by.itacademy.kishkevich.justjoinitproject.domain.JsonBodyAtributes.*;
 
 public class JsonBodyGenerator {
-    public static JSONObject jsonObj = new JSONObject();
+    public JSONObject jsonObj = new JSONObject();
 
     public JSONObject getRandomJsonWithAdditionalField() {
         jsonObj.put(EMAIL, Candidate.getEmail());
