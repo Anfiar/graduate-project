@@ -7,11 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.decorators.WebDriverDecorator;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +25,7 @@ public class JustJoinItPage {
     private String emailError = "//*[@id=':r1:-helper-text']";
     private String passwordError = "//*[@id=':r2:-helper-text']";
     private String searchInput = "//input[@placeholder='Search']";
-    private String OfferSize = "//button[@tabindex='0' and @role='tab']/span";
+    private String offerSize = "//button[@tabindex='0' and @role='tab']/span";
     private String topCompaniesButton = "//a[@class='header_brandStory_link']";
     private String searchCompanyInput = "//input[@placeholder='Search company']";
     private String listOfCompany = "//div[@data-page='1']";
@@ -112,7 +108,7 @@ public class JustJoinItPage {
 
     public String getOfferSize() {
         driver.findElement(By.xpath(turnEmailNotification));
-        return driver.findElement(By.xpath(OfferSize)).getText();
+        return driver.findElement(By.xpath(offerSize)).getText();
     }
 
     public List<WebElement> getOffersListByPositionSearch() {
