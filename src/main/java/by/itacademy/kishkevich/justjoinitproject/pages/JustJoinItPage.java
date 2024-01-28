@@ -137,9 +137,11 @@ public class JustJoinItPage {
     public List<String> getListOfCompanyByName() {
         driver.findElement(By.xpath(afterSearchCompanyDiv));
         List<String> stringList = new ArrayList<>();
+        logger.info("Start add element to Company list");
         for (WebElement wb : driver.findElements(By.xpath(companyName))
         ) {
             stringList.add(wb.getText());
+            logger.info(wb.getText());
         }
         Collections.sort(stringList);
         logger.info("Get list of company by name");
