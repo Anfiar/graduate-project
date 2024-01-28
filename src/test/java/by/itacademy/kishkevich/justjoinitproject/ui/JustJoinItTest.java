@@ -11,7 +11,7 @@ public class JustJoinItTest extends BaseTest {
     private final String WRONG_CREDENTIALS_MESSAGE = "Wrong email, password or account not verified.";
     private final String THIS_FIELD_IS_REQUIRED = "This field is required.";
     private final String INVALID_EMAIL_ADDRESS = "Invalid email address.";
-    private final String AUTOMATION_ENGINEER_POSITION = "Automation Engineer";
+    private final String SENIOR_QA_AUTOMATION_ENGINEER_POSITION = "Senior QA Automation Engineer";
     private final String SENIOR_QA_ENGINEER_POSITION = "Senior QA Engineer";
     private final String SOFTWARE_COMPANY_KEY_WORD = "Software";
     private final String SOLUTION_COMPANY_KEY_WORD = "Solution";
@@ -62,8 +62,8 @@ public class JustJoinItTest extends BaseTest {
     @Test
     public void testNameOfFirstOfferByPositionSearch() {
         justJoinItPage.getUrl();
-        justJoinItPage.sendKeyPositionSearchInput(AUTOMATION_ENGINEER_POSITION);
-        Assertions.assertTrue(justJoinItPage.getFirstPositionName().toLowerCase().contains(AUTOMATION_ENGINEER_POSITION.toLowerCase()));
+        justJoinItPage.sendKeyPositionSearchInput(SENIOR_QA_AUTOMATION_ENGINEER_POSITION);
+        Assertions.assertTrue(justJoinItPage.getFirstPositionName().toLowerCase().contains(SENIOR_QA_AUTOMATION_ENGINEER_POSITION.toLowerCase()));
     }
 
     @Test
