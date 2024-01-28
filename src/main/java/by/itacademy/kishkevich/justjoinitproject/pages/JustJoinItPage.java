@@ -157,7 +157,9 @@ public class JustJoinItPage {
 
     public String getFirstPositionName() {
         logger.info("Find first element by position name");
-        return getOffersListByPositionSearch().getFirst().findElement(By.xpath(positionName)).getText();
+        String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(By.xpath(positionName)).getText();
+        logger.info(firstPositionName);
+        return firstPositionName;
 
     }
 }
