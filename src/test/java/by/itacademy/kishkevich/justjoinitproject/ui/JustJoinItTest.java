@@ -80,7 +80,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.clickStartupButton();
         justJoinItPage.sendKeySearchCompanyInput(SOFTWARE_COMPANY_KEY_WORD);
-        Assertions.assertTrue(justJoinItPage.getFirstCompanyName().contains(SOFTWARE_COMPANY_KEY_WORD));
+        Assertions.assertTrue(justJoinItPage.getFirstCompanyName().toLowerCase().contains(SOFTWARE_COMPANY_KEY_WORD.toLowerCase()));
     }
 
     @Test
