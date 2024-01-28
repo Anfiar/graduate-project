@@ -7,7 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.decorators.WebDriverDecorator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -75,9 +79,11 @@ public class JustJoinItPage {
     public void clickSignInButton() {
         logger.info("Click Sign in to account");
         driver.findElement(By.xpath(signInToAccountButton)).click();
+
     }
 
     public String getSignInError() {
+        Driver.waiter(signInError);
         String errorMessage = driver.findElement(By.xpath(signInError)).getText();
         logger.info("Get SignIn error:" + errorMessage);
         return errorMessage;
