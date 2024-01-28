@@ -78,8 +78,8 @@ public class JustJoinItTest extends BaseTest {
     public void testNameOfFirstStartUpCompanyByKeyWordSearch() {
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
-        justJoinItPage.sendKeySearchCompanyInput(SOFTWARE_COMPANY_KEY_WORD);
         justJoinItPage.clickStartupButton();
+        justJoinItPage.sendKeySearchCompanyInput(SOFTWARE_COMPANY_KEY_WORD);
         Assertions.assertTrue(justJoinItPage.getFirstCompanyName().contains(SOFTWARE_COMPANY_KEY_WORD));
     }
 
