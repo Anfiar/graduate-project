@@ -20,7 +20,7 @@ public class JustJoinItTest extends BaseTest {
     private int sizeOfCompanyByKeyWordSearchExpectedResult = 7;
 
     @Test
-    public void testCandidateLogin() {
+    public void testNotRegisteredCandidateLogin() {
         justJoinItPage.goToLoginPage();
         justJoinItPage.sendEmail(Candidate.getEmail());
         justJoinItPage.sendPassword(Candidate.getPassword());

@@ -78,6 +78,7 @@ public class JustJoinItPage {
     }
 
     public String getSignInError() {
+        logger.info("Get Sign in error");
         return driver.findElement(By.xpath(signInError)).getText();
     }
 
