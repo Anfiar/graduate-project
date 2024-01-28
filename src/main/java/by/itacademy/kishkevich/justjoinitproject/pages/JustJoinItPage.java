@@ -148,7 +148,9 @@ public class JustJoinItPage {
 
     public String getFirstCompanyName() {
         logger.info("Find first element by company name");
-        return getListOfCompanyByKeyword().getFirst().findElement(By.xpath(companyName)).getText();
+        String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(By.xpath(companyName)).getText();
+        logger.info(firstCompanyName);
+        return firstCompanyName;
     }
 
     public String getFirstPositionName() {
