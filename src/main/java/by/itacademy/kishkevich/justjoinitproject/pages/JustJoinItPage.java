@@ -77,6 +77,7 @@ public class JustJoinItPage {
     }
 
     public void clickSignInButton() {
+        Driver.waiter(signInToAccountButton);
         logger.info("Click Sign in to account");
         driver.findElement(By.xpath(signInToAccountButton)).click();
 
