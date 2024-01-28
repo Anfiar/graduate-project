@@ -16,7 +16,7 @@ public class JustJoinItTest extends BaseTest {
     private final String SOFTWARE_COMPANY_KEY_WORD = "Software";
     private final String SOLUTION_COMPANY_KEY_WORD = "Solution";
     private final String BANK_COMPANY_KEY_WORD = "Bank";
-    private String sizeOfOfferByPositionSearchExpectedResult = "24 offers";
+    private String sizeOfOfferByPositionSearchExpectedResult = "23 offers";
     private int sizeOfCompanyByKeyWordSearchExpectedResult = 7;
 
     @Test
