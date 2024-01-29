@@ -29,7 +29,7 @@ public class JustJoinItPage {
     private By topCompaniesButton = By.xpath("//a[@class='header_brandStory_link']");
     private By searchCompanyInput = By.xpath("//input[@placeholder='Search company']");
     private By listOfCompany = By.xpath("//div[@data-page='1']");
-    private By turnEmailNotificationButton = By.xpath("//button[@name='job_alerts_banner_save_button']");
+    private By turnEmailNotificationButton = By.xpath("//span[text()='Add an e-mail notification, and we will inform you about new job offers according to the given criteria.']");
     private By startupButton = By.xpath("//button[text()='Startup']");
     private By offerRecord = By.xpath("//div[@data-test-id='virtuoso-item-list']/div");
     private By afterSearchCompanyDiv = By.xpath("//div[@style='display: block;']");
