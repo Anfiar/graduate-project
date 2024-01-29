@@ -134,6 +134,7 @@ public class JustJoinItPage {
     }
 
     public void clickStartupButton() {
+        Driver.waiter(startupButton);
         logger.info("Click Startup button");
         driver.findElement(By.xpath(startupButton)).click();
     }
