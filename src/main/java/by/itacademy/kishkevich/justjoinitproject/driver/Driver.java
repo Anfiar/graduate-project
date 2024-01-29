@@ -15,7 +15,6 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
             options.addArguments("--disable-gpu");
             driver = new ChromeDriver(options);
             setUp();
