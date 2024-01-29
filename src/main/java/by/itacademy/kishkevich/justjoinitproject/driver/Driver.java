@@ -11,11 +11,12 @@ import java.time.Duration;
 
 public class Driver {
     private static WebDriver driver;
-    private static ChromeOptions options;
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            setUpChromeOptions();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
             driver = new ChromeDriver(options);
             setUp();
         }
@@ -26,12 +27,6 @@ public class Driver {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-    }
-
-    private static void setUpChromeOptions() {
-        options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
     }
 
     public static void waiter(By xpath) {
