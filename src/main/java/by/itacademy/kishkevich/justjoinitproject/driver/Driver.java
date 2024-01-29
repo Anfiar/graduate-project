@@ -16,10 +16,7 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            options.setPageLoadStrategy(PageLoadStrategy.NONE);
-            options.addArguments("--disable-gpu");
-            options.addArguments("--incognito");
-            options.addArguments("--headless");
+            options.setPageLoadStrategy(PageLoadStrategy.EAGER);
             driver = new ChromeDriver(options);
             setUp();
         }
