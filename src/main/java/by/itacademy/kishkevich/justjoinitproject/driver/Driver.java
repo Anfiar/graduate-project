@@ -24,9 +24,9 @@ public class Driver {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
     }
-    public static void waiter(String xpath) {
+    public static void waiter(By xpath) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(xpath));
     }
 
     public static void quitDriver() {

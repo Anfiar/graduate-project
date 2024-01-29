@@ -6,15 +6,17 @@ import static io.restassured.RestAssured.given;
 
 public class BaseApiTest {
     private static final String URL = "https://profile.justjoin.it/api/justjoinit/authentication/login";
-    public JsonBodyGenerator jsonBodyGenerator = new JsonBodyGenerator();
-
-    public static void loginMethod(String getBody, int getStatusCode) {
+    protected final JsonBodyGenerator jsonBodyGenerator;
+    public BaseApiTest() {
+        this.jsonBodyGenerator = new JsonBodyGenerator();
+    }
+    public static void loginMethod(String body, int statusCode) {
         given()
                 .header("Content-type", "application/json")
-                .body(getBody)
+                .body(body)
                 .when()
                 .post(URL)
                 .then()
-                .assertThat().statusCode(getStatusCode);
+                .assertThat().statusCode(statusCode);
     }
 }

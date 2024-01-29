@@ -6,10 +6,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class BaseTest {
-    JustJoinItPage justJoinItPage;
+    protected JustJoinItPage justJoinItPage;
 
     @BeforeEach
-    public void testStart() {
+    public void setUp() {
         justJoinItPage = new JustJoinItPage();
     }
 

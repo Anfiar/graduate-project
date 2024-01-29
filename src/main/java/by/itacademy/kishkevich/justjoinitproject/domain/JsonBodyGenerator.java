@@ -5,7 +5,11 @@ import org.json.simple.JSONObject;
 import static by.itacademy.kishkevich.justjoinitproject.domain.JsonBodyAtributes.*;
 
 public class JsonBodyGenerator {
-    public JSONObject jsonObj = new JSONObject();
+    private final JSONObject jsonObj;
+
+    public JsonBodyGenerator() {
+        this.jsonObj = new JSONObject();
+    }
 
     public JSONObject getRandomJsonWithAdditionalField() {
         jsonObj.put(EMAIL, Candidate.getEmail());
@@ -21,29 +25,35 @@ public class JsonBodyGenerator {
     }
 
     public JSONObject getRandomJsonWithSomeEmptyValueOfField(String field) {
-        if (field.equals(PASSWORD)) {
-            jsonObj.put(EMAIL, Candidate.getEmail());
-            jsonObj.put(PASSWORD, "");
-        } else if (field.equals(EMAIL)) {
-            jsonObj.put(EMAIL, "");
-            jsonObj.put(PASSWORD, Candidate.getPassword());
-        } else {
-            jsonObj.put(EMAIL, "");
-            jsonObj.put(PASSWORD, "");
+        switch (field) {
+            case PASSWORD:
+                jsonObj.put(EMAIL, Candidate.getEmail());
+                jsonObj.put(PASSWORD, "");
+                break;
+            case EMAIL:
+                jsonObj.put(EMAIL, "");
+                jsonObj.put(PASSWORD, Candidate.getPassword());
+                break;
+            default:
+                jsonObj.put(EMAIL, "");
+                jsonObj.put(PASSWORD, "");
         }
         return jsonObj;
     }
 
     public JSONObject getRandomJsonWithIntegerValueOfField(String field) {
-        if (field.equals(EMAIL)) {
-            jsonObj.put(EMAIL, Candidate.getNumber());
-            jsonObj.put(PASSWORD, "");
-        } else if (field.equals(PASSWORD)) {
-            jsonObj.put(EMAIL, "");
-            jsonObj.put(PASSWORD, Candidate.getNumber());
-        } else {
-            jsonObj.put(EMAIL, Candidate.getNumber());
-            jsonObj.put(PASSWORD, Candidate.getNumber());
+        switch (field) {
+            case EMAIL:
+                jsonObj.put(EMAIL, Candidate.getNumber());
+                jsonObj.put(PASSWORD, "");
+                break;
+            case PASSWORD:
+                jsonObj.put(EMAIL, "");
+                jsonObj.put(PASSWORD, Candidate.getNumber());
+                break;
+            default:
+                jsonObj.put(EMAIL, Candidate.getNumber());
+                jsonObj.put(PASSWORD, Candidate.getNumber());
         }
         return jsonObj;
     }

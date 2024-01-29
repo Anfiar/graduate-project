@@ -8,165 +8,161 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class JustJoinItPage {
     private WebDriver driver;
     private String url = "https://justjoin.it/";
-    private String signIn = "//button[text() ='Sign in']";
-    private String candidateProfileSignIn = "//p[text() =\"Sign in to Candidate's profile\"]";
-    private String singInByEmail = "//button[text() = 'Sign in using address email']";
-    private String emailInput = "//*[@id=':r1:']";
-    private String passwordInput = "//*[@id=':r2:']";
-    private String signInToAccountButton = "//button[@type='submit' and text() = 'Sign in']";
-    private String signInError = "//div[@datacy='failed-login-via-mail-snack']//p";
-    private String emailError = "//*[@id=':r1:-helper-text']";
-    private String passwordError = "//*[@id=':r2:-helper-text']";
-    private String searchInput = "//input[@placeholder='Search']";
-    private String offerSize = "//button[@tabindex='0' and @role='tab']/span";
-    private String topCompaniesButton = "//a[@class='header_brandStory_link']";
-    private String searchCompanyInput = "//input[@placeholder='Search company']";
-    private String listOfCompany = "//div[@data-page='1']";
-    private String turnEmailNotification = "//button[@name='job_alerts_banner_save_button']";
-    private String startupButton = "//button[text()='Startup']";
-    private String offerRecord = "//div[@data-test-id='virtuoso-item-list']/div";
-    private String afterSearchCompanyDiv = "//div[@style='display: block;']";
-    private String companyName = ".//h6";
-    private String positionName = ".//h2";
+    private By signInButton = By.xpath("//button[text()='Sign in']");
+    private By candidateProfileSignInButton = By.xpath("//p[text()=\"Sign in to Candidate's profile\"]");
+    private By signInByEmailButton = By.xpath("//button[text()='Sign in using address email']");
+    private By emailInput = By.xpath("//*[@id=':r1:']");
+    private By passwordInput = By.xpath("//*[@id=':r2:']");
+    private By signInToAccountButton = By.xpath("//button[@type='submit' and text()='Sign in']");
+    private By signInError = By.xpath("//div[@datacy='failed-login-via-mail-snack']//p");
+    private By emailError = By.xpath("//*[@id=':r1:-helper-text']");
+    private By passwordError = By.xpath("//*[@id=':r2:-helper-text']");
+    private By searchInput = By.xpath("//input[@placeholder='Search']");
+    private By offerSize = By.xpath("//button[@tabindex='0' and @role='tab']/span");
+    private By topCompaniesButton = By.xpath("//a[@class='header_brandStory_link']");
+    private By searchCompanyInput = By.xpath("//input[@placeholder='Search company']");
+    private By listOfCompany = By.xpath("//div[@data-page='1']");
+    private By turnEmailNotificationButton = By.xpath("//button[@name='job_alerts_banner_save_button']");
+    private By startupButton = By.xpath("//button[text()='Startup']");
+    private By offerRecord = By.xpath("//div[@data-test-id='virtuoso-item-list']/div");
+    private By afterSearchCompanyDiv = By.xpath("//div[@style='display: block;']");
+    private By companyName = By.xpath(".//h6");
+    private By positionName = By.xpath(".//h2");
     private static final Logger logger = LogManager.getLogger();
 
     public JustJoinItPage() {
         this.driver = Driver.getDriver();
-        logger.info("Create WebDriver");
+        logger.info("Start new case and create WebDriver");
     }
 
     public void getUrl() {
-        logger.info("Open URL:" + url);
+        logger.info("Open URL: " + url);
         driver.get(url);
     }
 
     public void clickSignIn() {
-        logger.info("Click sign in");
-        driver.findElement(By.xpath(signIn)).click();
+        logger.info("Clicking on Sign in button");
+        driver.findElement(signInButton).click();
     }
 
     public void clickCandidateProfileSignIn() {
-        logger.info("Click Sign in to candidate's profile");
-        driver.findElement(By.xpath(candidateProfileSignIn)).click();
+        logger.info("Clicking on Sign in to Candidate's profile");
+        driver.findElement(candidateProfileSignInButton).click();
     }
 
-    public void clickSingInByEmail() {
-        logger.info("Click Sign in using email");
-        driver.findElement(By.xpath(singInByEmail)).click();
+    public void clickSignInByEmail() {
+        logger.info("Clicking on Sign in using email address");
+        driver.findElement(signInByEmailButton).click();
     }
 
     public void sendEmail(String email) {
-        logger.info("Input Email:" + email);
-        driver.findElement(By.xpath(emailInput)).sendKeys(email);
+        logger.info("Input Email: " + email);
+        driver.findElement(emailInput).sendKeys(email);
     }
 
     public void sendPassword(String password) {
-        logger.info("Input Password:" + password);
-        driver.findElement(By.xpath(passwordInput)).sendKeys(password);
+        logger.info("Input Password: " + password);
+        driver.findElement(passwordInput).sendKeys(password);
     }
 
     public void clickSignInButton() {
         Driver.waiter(signInToAccountButton);
-        logger.info("Click Sign in to account");
-        driver.findElement(By.xpath(signInToAccountButton)).click();
-
+        logger.info("Clicking on Sign in button");
+        driver.findElement(signInToAccountButton).click();
     }
 
     public String getSignInError() {
         Driver.waiter(signInError);
-        String errorMessage = driver.findElement(By.xpath(signInError)).getText();
-        logger.info("Get SignIn error:" + errorMessage);
+        String errorMessage = driver.findElement(signInError).getText();
+        logger.info("Get Sign in error: " + errorMessage);
         return errorMessage;
     }
 
     public String getEmailError() {
-        return driver.findElement(By.xpath(emailError)).getText();
+        return driver.findElement(emailError).getText();
     }
 
     public String getPasswordError() {
-        return driver.findElement(By.xpath(passwordError)).getText();
+        return driver.findElement(passwordError).getText();
     }
 
     public void sendKeyPositionSearchInput(String position) {
-        logger.info("Input Position:" + position);
-        driver.findElement(By.xpath(searchInput)).sendKeys(position, Keys.ENTER);
+        logger.info("Input Position: " + position);
+        driver.findElement(searchInput).sendKeys(position, Keys.ENTER);
     }
 
     public void goToLoginPage() {
         getUrl();
         clickSignIn();
         clickCandidateProfileSignIn();
-        clickSingInByEmail();
+        clickSignInByEmail();
     }
 
     public String getOfferSize() {
-        driver.findElement(By.xpath(turnEmailNotification));
-        return driver.findElement(By.xpath(offerSize)).getText();
+        driver.findElement(turnEmailNotificationButton);
+        return driver.findElement(offerSize).getText();
     }
 
     public List<WebElement> getOffersListByPositionSearch() {
         logger.info("Get offer list");
-        driver.findElement(By.xpath(turnEmailNotification));
-        return driver.findElements(By.xpath(offerRecord));
+        Driver.waiter(turnEmailNotificationButton);
+        driver.findElement(turnEmailNotificationButton);
+        return driver.findElements(offerRecord);
     }
 
     public void clickTopCompaniesButton() {
-        logger.info("Click Top companies button");
-        driver.findElement(By.xpath(topCompaniesButton)).click();
+        logger.info("Clicking on Top companies button");
+        driver.findElement(topCompaniesButton).click();
     }
 
     public void sendKeySearchCompanyInput(String keyword) {
-        logger.info("Input Company name by keyword:" + keyword);
-        driver.findElement(By.xpath(searchCompanyInput)).sendKeys(keyword, Keys.ENTER);
+        logger.info("Input Company name keyword: " + keyword);
+        driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
     public List<WebElement> getListOfCompanyByKeyword() {
-        driver.findElement(By.xpath(afterSearchCompanyDiv));
+        driver.findElement(afterSearchCompanyDiv);
         logger.info("Get list of Company by keyword");
-        return driver.findElements(By.xpath(listOfCompany));
+        return driver.findElements(listOfCompany);
     }
 
     public void clickStartupButton() {
         Driver.waiter(startupButton);
-        logger.info("Click Startup button");
-        driver.findElement(By.xpath(startupButton)).click();
+        logger.info("Clicking on Startup button");
+        driver.findElement(startupButton).click();
     }
 
     public List<String> getListOfCompanyByName() {
-        driver.findElement(By.xpath(afterSearchCompanyDiv));
+        driver.findElement(afterSearchCompanyDiv);
         List<String> stringList = new ArrayList<>();
-        logger.info("Start add element to Company list");
-        for (WebElement wb : driver.findElements(By.xpath(companyName))
-        ) {
+        logger.info("Start adding elements to Company list");
+        for (WebElement wb : driver.findElements(companyName)) {
             stringList.add(wb.getText());
             logger.info(wb.getText());
         }
         Collections.sort(stringList);
-        logger.info("Get list of company by name");
+        logger.info("Get list of companies by name");
         return stringList;
     }
 
     public String getFirstCompanyName() {
         logger.info("Find first element by company name");
-        String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(By.xpath(companyName)).getText();
+        String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(companyName).getText();
         logger.info(firstCompanyName);
         return firstCompanyName;
     }
 
     public String getFirstPositionName() {
         logger.info("Find first element by position name");
-        String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(By.xpath(positionName)).getText();
+        String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(positionName).getText();
         logger.info(firstPositionName);
         return firstPositionName;
-
     }
 }
-
-
