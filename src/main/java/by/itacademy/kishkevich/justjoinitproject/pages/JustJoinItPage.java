@@ -106,17 +106,20 @@ public class JustJoinItPage {
         clickSignInByEmail();
     }
 
-    public String getOfferSize() {
-        logger.info("Get offer size");
+    public void checkTurnEmailNotification() {
         Driver.waiter(turnEmailNotificationButton);
         driver.findElement(turnEmailNotificationButton);
+    }
+
+    public String getOfferSize() {
+        checkTurnEmailNotification();
+        logger.info("Get offer size");
         return driver.findElement(offerSize).getText();
     }
 
     public List<WebElement> getOffersListByPositionSearch() {
+        checkTurnEmailNotification();
         logger.info("Get offer list");
-        Driver.waiter(turnEmailNotificationButton);
-        driver.findElement(turnEmailNotificationButton);
         return driver.findElements(offerRecord);
     }
 
