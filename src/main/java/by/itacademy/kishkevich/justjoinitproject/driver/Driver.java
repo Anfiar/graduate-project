@@ -16,6 +16,7 @@ public class Driver {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--disable-gpu");
+            options.addArguments("--incognito");
             driver = new ChromeDriver(options);
             setUp();
         }
