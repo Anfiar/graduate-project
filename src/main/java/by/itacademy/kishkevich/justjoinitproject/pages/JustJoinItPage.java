@@ -20,7 +20,7 @@ public class JustJoinItPage {
     private By signInByEmailButton = By.xpath("//button[text()='Sign in using address email']");
     private By emailInput = By.xpath("//*[@id=':r1:']");
     private By passwordInput = By.xpath("//*[@id=':r2:']");
-    private By signInToAccountButton = By.xpath("//button[@type='submit' and text()='Sign in']");
+    private By signInToAccountButton = By.xpath("//button[@tabindex='0' and @type='submit' and text()='Sign in']");
     private By signInError = By.xpath("//p[text()='Wrong email, password or account not verified.']");
     private By emailError = By.xpath("//*[@id=':r1:-helper-text']");
     private By passwordError = By.xpath("//*[@id=':r2:-helper-text']");
