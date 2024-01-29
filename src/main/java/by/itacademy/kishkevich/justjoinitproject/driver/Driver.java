@@ -1,6 +1,7 @@
 package by.itacademy.kishkevich.justjoinitproject.driver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,6 +16,7 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
+            options.setPageLoadStrategy(PageLoadStrategy.NONE);
             options.addArguments("--disable-gpu");
             options.addArguments("--incognito");
             driver = new ChromeDriver(options);
