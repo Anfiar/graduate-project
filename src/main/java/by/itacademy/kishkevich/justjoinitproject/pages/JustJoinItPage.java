@@ -160,6 +160,7 @@ public class JustJoinItPage {
     }
 
     public String getFirstPositionName() {
+        Driver.waiter(positionName);
         logger.info("Find first element by position name");
         String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(positionName).getText();
         logger.info(firstPositionName);
