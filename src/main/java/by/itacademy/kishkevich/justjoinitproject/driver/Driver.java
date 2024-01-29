@@ -17,6 +17,7 @@ public class Driver {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+            options.addArguments("--disable-application-cache");
             driver = new ChromeDriver(options);
             setUp();
         }

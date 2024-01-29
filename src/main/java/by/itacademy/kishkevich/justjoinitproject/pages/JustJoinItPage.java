@@ -108,7 +108,6 @@ public class JustJoinItPage {
     }
 
     public void checkPageUpdateAfterSearch() {
-        Driver.waiter(turnEmailNotificationButton);
         driver.findElement(turnEmailNotificationButton);
         driver.findElement(subscribeButton);
     }
@@ -122,7 +121,9 @@ public class JustJoinItPage {
     public List<WebElement> getOffersListByPositionSearch() {
         checkPageUpdateAfterSearch();
         logger.info("Get offer list");
-        return driver.findElements(offerRecord);
+        List<WebElement> offerRecordList = driver.findElements(offerRecord);
+        logger.info(offerRecordList);
+        return offerRecordList;
     }
 
     public void clickTopCompaniesButton() {
