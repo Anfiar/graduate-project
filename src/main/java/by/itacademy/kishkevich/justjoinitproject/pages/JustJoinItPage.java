@@ -142,6 +142,7 @@ public class JustJoinItPage {
     }
 
     public List<String> getListOfCompanyByName() {
+        Driver.waiter(afterSearchCompanyDiv);
         driver.findElement(afterSearchCompanyDiv);
         List<String> stringList = new ArrayList<>();
         logger.info("Start adding elements to Company list");
