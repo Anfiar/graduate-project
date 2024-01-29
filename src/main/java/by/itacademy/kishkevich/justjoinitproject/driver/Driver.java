@@ -19,6 +19,7 @@ public class Driver {
             options.setPageLoadStrategy(PageLoadStrategy.NONE);
             options.addArguments("--disable-gpu");
             options.addArguments("--incognito");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
             setUp();
         }
