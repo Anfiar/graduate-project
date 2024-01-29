@@ -32,7 +32,8 @@ public class Driver {
     }
 
     public static void waiter(By xpath) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(xpath));
         wait.until(ExpectedConditions.elementToBeClickable(xpath));
     }
 
