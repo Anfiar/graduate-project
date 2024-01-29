@@ -21,6 +21,7 @@ public class JustJoinItPage {
     private By emailInput = By.xpath("//*[@id=':r1:']");
     private By passwordInput = By.xpath("//*[@id=':r2:']");
     private By signInToAccountButton = By.xpath("//button[@tabindex='0' and @type='submit' and text()='Sign in']");
+    private By subscribeButton = By.xpath("//button[@name='job_alerts_switcher_popup_button']");
     private By signInError = By.xpath("//p[text()='Wrong email, password or account not verified.']");
     private By emailError = By.xpath("//*[@id=':r1:-helper-text']");
     private By passwordError = By.xpath("//*[@id=':r2:-helper-text']");
@@ -106,19 +107,20 @@ public class JustJoinItPage {
         clickSignInByEmail();
     }
 
-    public void checkTurnEmailNotification() {
+    public void checkPageUpdateAfterSearch() {
         Driver.waiter(turnEmailNotificationButton);
         driver.findElement(turnEmailNotificationButton);
+        driver.findElement(subscribeButton);
     }
 
     public String getOfferSize() {
-        checkTurnEmailNotification();
+        checkPageUpdateAfterSearch();
         logger.info("Get offer size");
         return driver.findElement(offerSize).getText();
     }
 
     public List<WebElement> getOffersListByPositionSearch() {
-        checkTurnEmailNotification();
+        checkPageUpdateAfterSearch();
         logger.info("Get offer list");
         return driver.findElements(offerRecord);
     }
