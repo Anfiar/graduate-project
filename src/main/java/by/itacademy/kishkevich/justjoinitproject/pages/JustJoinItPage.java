@@ -80,6 +80,7 @@ public class JustJoinItPage {
 
     public String getSignInError() {
         Driver.waiter(signInError);
+        driver.findElement(signInError).click();
         String errorMessage = driver.findElement(signInError).getText();
         logger.info("Get Sign in error: " + errorMessage);
         return errorMessage;
