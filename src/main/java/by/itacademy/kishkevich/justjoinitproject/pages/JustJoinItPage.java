@@ -107,6 +107,8 @@ public class JustJoinItPage {
     }
 
     public String getOfferSize() {
+        logger.info("Get offer size");
+        Driver.waiter(turnEmailNotificationButton);
         driver.findElement(turnEmailNotificationButton);
         return driver.findElement(offerSize).getText();
     }
