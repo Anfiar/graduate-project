@@ -124,6 +124,7 @@ public class JustJoinItPage {
 
     public void sendKeySearchCompanyInput(String keyword) {
         logger.info("Input Company name keyword: " + keyword);
+        Driver.waiter(searchCompanyInput);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
