@@ -19,7 +19,7 @@ public class BaseApiTest {
                 .body(body)
                 .when()
                 .post(URL)
-                .then().log().all()
+                .then()
                 .assertThat().statusCode(statusCode);
     }
 
@@ -29,7 +29,7 @@ public class BaseApiTest {
                 .body(body)
                 .when()
                 .post(URL)
-                .then().log().all()
+                .then()
                 .assertThat()
                 .body("error[0]", equalTo("'Email' must not be empty."))
                 .body("error[1]", equalTo("'Password' must not be empty."));
