@@ -13,6 +13,7 @@ public class JustJoinItTest extends BaseTest {
     private final String SENIOR_QA_AUTOMATION_ENGINEER_POSITION = "Senior QA Automation Engineer";
     private final String SENIOR_QA_ENGINEER_POSITION = "Senior QA Engineer";
     private final String SOFTWARE_COMPANY_KEY_WORD = "Software";
+    private final String SOFTWARE_COMPANY_NAME = "Montrose Software( Polska) Sp.z.o.o";
     private final String SOLUTION_COMPANY_KEY_WORD = "Solution";
     private final String BANK_COMPANY_KEY_WORD = "Bank";
     private String sizeOfOfferByPositionSearchExpectedResult = "23 offers";
@@ -79,7 +80,7 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.clickStartupButton();
         justJoinItPage.sendKeySearchCompanyInput(SOFTWARE_COMPANY_KEY_WORD);
-        Assertions.assertTrue(justJoinItPage.getFirstCompanyName().toLowerCase().contains(SOFTWARE_COMPANY_KEY_WORD.toLowerCase()));
+        Assertions.assertTrue(justJoinItPage.getFirstCompanyName().toLowerCase().contains(SOFTWARE_COMPANY_NAME.toLowerCase()));
     }
 
     @Test

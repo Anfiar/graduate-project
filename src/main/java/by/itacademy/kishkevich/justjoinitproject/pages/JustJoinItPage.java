@@ -32,6 +32,7 @@ public class JustJoinItPage {
     private By listOfCompany = By.xpath("//div[@data-page='1']");
     private By turnEmailNotificationButton = By.xpath("//span[text()='Add an e-mail notification, and we will inform you about new job offers according to the given criteria.']");
     private By startupButton = By.xpath("//button[text()='Startup']");
+    private By startupSpanAvailible = By.xpath("//span[text()='Startup']");
     private By offerRecord = By.xpath("//div[@data-test-id='virtuoso-item-list']/div");
     private By afterSearchCompanyDiv = By.xpath("//div[@style='display: block;']");
     private By companyName = By.xpath(".//h6");
@@ -133,7 +134,6 @@ public class JustJoinItPage {
 
     public void sendKeySearchCompanyInput(String keyword) {
         logger.info("Input Company name keyword: " + keyword);
-        Driver.waiter(searchCompanyInput);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
@@ -144,9 +144,9 @@ public class JustJoinItPage {
     }
 
     public void clickStartupButton() {
-        Driver.waiter(startupButton);
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
+        driver.findElement(startupSpanAvailible);
     }
 
     public SortedSet<String> getListOfCompanyByName() {
