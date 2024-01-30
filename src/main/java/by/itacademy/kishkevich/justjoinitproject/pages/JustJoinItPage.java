@@ -146,7 +146,6 @@ public class JustJoinItPage {
     public void clickStartupButton() {
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
-        driver.findElement(startupSpanAvailible);
     }
 
     public SortedSet<String> getListOfCompanyByName() {
@@ -163,6 +162,7 @@ public class JustJoinItPage {
     }
 
     public String getFirstCompanyName() {
+        driver.findElement(startupSpanAvailible);
         logger.info("Find first element by company name");
         String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(companyName).getText();
         logger.info(firstCompanyName);
