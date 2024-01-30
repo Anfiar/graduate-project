@@ -164,7 +164,6 @@ public class JustJoinItPage {
     }
 
     public String getFirstCompanyName() {
-        driver.findElement(startupSpanAvailible);
         logger.info("Find first element by company name");
         String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(companyName).getText();
         logger.info(firstCompanyName);
