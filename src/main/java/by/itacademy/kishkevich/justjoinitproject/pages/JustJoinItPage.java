@@ -134,6 +134,7 @@ public class JustJoinItPage {
 
     public void sendKeySearchCompanyInput(String keyword) {
         logger.info("Input Company name keyword: " + keyword);
+        Driver.waiter(searchCompanyInput);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
@@ -146,6 +147,7 @@ public class JustJoinItPage {
     public void clickStartupButton() {
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
+        driver.findElement(startupSpanAvailible);
     }
 
     public SortedSet<String> getListOfCompanyByName() {
