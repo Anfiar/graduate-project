@@ -16,7 +16,7 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+            options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
             options.addArguments("--incognito");
             driver = new ChromeDriver(options);
             setUp();
