@@ -3,9 +3,8 @@ package by.itacademy.kishkevich.justjoinitproject.ui;
 import by.itacademy.kishkevich.justjoinitproject.domain.Candidate;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+import java.util.*;
 
 public class JustJoinItTest extends BaseTest {
     private final String WRONG_CREDENTIALS_MESSAGE = "Wrong email, password or account not verified.";
@@ -88,12 +87,11 @@ public class JustJoinItTest extends BaseTest {
         justJoinItPage.getUrl();
         justJoinItPage.clickTopCompaniesButton();
         justJoinItPage.sendKeySearchCompanyInput(BANK_COMPANY_KEY_WORD);
-        List<String> expectedList = new ArrayList<>();
+        SortedSet<String> expectedList = new TreeSet<>();
+        expectedList.add("mBank");
         expectedList.add("Nest Bank S.A.");
         expectedList.add("Bank Millennium");
-        expectedList.add("mBank");
         expectedList.add("PKO Bank Polski");
-        Collections.sort(expectedList);
         Assertions.assertEquals(expectedList, justJoinItPage.getListOfCompanyByName());
     }
 }

@@ -8,8 +8,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.List;
 
 public class JustJoinItPage {
@@ -149,16 +149,15 @@ public class JustJoinItPage {
         driver.findElement(startupButton).click();
     }
 
-    public List<String> getListOfCompanyByName() {
+    public SortedSet<String> getListOfCompanyByName() {
         Driver.waiter(afterSearchCompanyDiv);
         driver.findElement(afterSearchCompanyDiv);
-        List<String> stringList = new ArrayList<>();
+        SortedSet<String> stringList = new TreeSet<>();
         logger.info("Start adding elements to Company list");
         for (WebElement wb : driver.findElements(companyName)) {
             stringList.add(wb.getText());
             logger.info(wb.getText());
         }
-        Collections.sort(stringList);
         logger.info("Get list of companies by name");
         return stringList;
     }
