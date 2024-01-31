@@ -75,13 +75,13 @@ public class JustJoinItPage {
     }
 
     public void clickSignInButton() {
-        Driver.waiter(signInToAccountButton);
+        //Driver.waiter(signInToAccountButton);
         logger.info("Clicking on Sign in button");
         driver.findElement(signInToAccountButton).click();
     }
 
     public String getSignInError() {
-        Driver.waiter(signInError);
+        //Driver.waiter(signInError);
         driver.findElement(signInError).click();
         String errorMessage = driver.findElement(signInError).getText();
         logger.info("Get Sign in error: " + errorMessage);
@@ -134,7 +134,8 @@ public class JustJoinItPage {
 
     public void sendKeySearchCompanyInput(String keyword) {
         logger.info("Input Company name keyword: " + keyword);
-        Driver.waiter(searchCompanyInput);
+        //Driver.waiter(searchCompanyInput);
+        //driver.findElement(startupSpanAvailible);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
@@ -147,11 +148,12 @@ public class JustJoinItPage {
     public void clickStartupButton() {
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
-        driver.findElement(startupSpanAvailible);
+        driver.findElement(By.xpath("//iframe[5]"));
+
     }
 
     public SortedSet<String> getListOfCompanyByName() {
-        Driver.waiter(afterSearchCompanyDiv);
+        //Driver.waiter(afterSearchCompanyDiv);
         driver.findElement(afterSearchCompanyDiv);
         SortedSet<String> stringList = new TreeSet<>();
         logger.info("Start adding elements to Company list");
@@ -172,7 +174,7 @@ public class JustJoinItPage {
     }
 
     public String getFirstPositionName() {
-        Driver.waiter(positionName);
+        //Driver.waiter(positionName);
         logger.info("Find first element by position name");
         String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(positionName).getText();
         logger.info(firstPositionName);
