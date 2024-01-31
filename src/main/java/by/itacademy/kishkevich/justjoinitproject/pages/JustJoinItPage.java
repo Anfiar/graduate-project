@@ -146,6 +146,7 @@ public class JustJoinItPage {
     }
 
     public void clickStartupButton() {
+        driver.findElement(By.xpath("//button[text()='Get started']"));
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
         driver.findElement(By.xpath("//iframe[5]"));
