@@ -130,6 +130,7 @@ public class JustJoinItPage {
     public void clickTopCompaniesButton() {
         logger.info("Clicking on Top companies button");
         driver.findElement(topCompaniesButton).click();
+        driver.findElement(By.xpath("//button[text()='Get started']"));
     }
 
     public void sendKeySearchCompanyInput(String keyword) {
@@ -146,7 +147,7 @@ public class JustJoinItPage {
     }
 
     public void clickStartupButton() {
-        driver.findElement(By.xpath("//button[text()='Get started']"));
+        //driver.findElement(By.xpath("//button[text()='Get started']"));
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
         driver.findElement(By.xpath("//iframe[5]"));
