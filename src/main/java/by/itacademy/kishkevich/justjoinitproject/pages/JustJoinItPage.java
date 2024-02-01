@@ -28,10 +28,12 @@ public class JustJoinItPage {
     private By searchInput = By.xpath("//input[@placeholder='Search']");
     private By offerSize = By.xpath("//button[@tabindex='0' and @role='tab']/span");
     private By topCompaniesButton = By.xpath("//a[@class='header_brandStory_link']");
+    private By getStartedButton = By.xpath("//button[text()='Get started']");
     private By searchCompanyInput = By.xpath("//input[@placeholder='Search company']");
     private By listOfCompany = By.xpath("//div[@data-page='1']");
     private By turnEmailNotificationButton = By.xpath("//span[text()='Add an e-mail notification, and we will inform you about new job offers according to the given criteria.']");
     private By startupButton = By.xpath("//button[text()='Startup']");
+    private By checkStartupSearchEnd = By.xpath("//iframe[5]");
     private By startupSpanAvailible = By.xpath("//span[text()='Startup']");
     private By offerRecord = By.xpath("//div[@data-test-id='virtuoso-item-list']/div");
     private By afterSearchCompanyDiv = By.xpath("//div[@style='display: block;']");
@@ -75,13 +77,11 @@ public class JustJoinItPage {
     }
 
     public void clickSignInButton() {
-        //Driver.waiter(signInToAccountButton);
         logger.info("Clicking on Sign in button");
         driver.findElement(signInToAccountButton).click();
     }
 
     public String getSignInError() {
-        //Driver.waiter(signInError);
         driver.findElement(signInError).click();
         String errorMessage = driver.findElement(signInError).getText();
         logger.info("Get Sign in error: " + errorMessage);
@@ -130,13 +130,11 @@ public class JustJoinItPage {
     public void clickTopCompaniesButton() {
         logger.info("Clicking on Top companies button");
         driver.findElement(topCompaniesButton).click();
-        driver.findElement(By.xpath("//button[text()='Get started']"));
+        driver.findElement(getStartedButton);
     }
 
     public void sendKeySearchCompanyInput(String keyword) {
         logger.info("Input Company name keyword: " + keyword);
-        //Driver.waiter(searchCompanyInput);
-        //driver.findElement(startupSpanAvailible);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
@@ -147,15 +145,12 @@ public class JustJoinItPage {
     }
 
     public void clickStartupButton() {
-        //driver.findElement(By.xpath("//button[text()='Get started']"));
         logger.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
-        driver.findElement(By.xpath("//iframe[5]"));
-
+        driver.findElement(checkStartupSearchEnd);
     }
 
     public SortedSet<String> getListOfCompanyByName() {
-        //Driver.waiter(afterSearchCompanyDiv);
         driver.findElement(afterSearchCompanyDiv);
         SortedSet<String> stringList = new TreeSet<>();
         logger.info("Start adding elements to Company list");
@@ -176,7 +171,6 @@ public class JustJoinItPage {
     }
 
     public String getFirstPositionName() {
-        //Driver.waiter(positionName);
         logger.info("Find first element by position name");
         String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(positionName).getText();
         logger.info(firstPositionName);
