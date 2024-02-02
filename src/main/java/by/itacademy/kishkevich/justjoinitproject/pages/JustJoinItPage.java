@@ -122,9 +122,7 @@ public class JustJoinItPage {
     public List<WebElement> getOffersListByPositionSearch() {
         checkPageUpdateAfterSearch();
         logger.info("Get offer list");
-        List<WebElement> offerRecordList = driver.findElements(offerRecord);
-        logger.info(offerRecordList);
-        return offerRecordList;
+        return driver.findElements(offerRecord);
     }
 
     public void clickTopCompaniesButton() {
