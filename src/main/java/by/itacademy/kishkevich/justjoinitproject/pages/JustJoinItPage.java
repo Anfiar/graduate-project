@@ -39,52 +39,52 @@ public class JustJoinItPage {
     private By afterSearchCompanyDiv = By.xpath("//div[@style='display: block;']");
     private By companyName = By.xpath(".//h6");
     private By positionName = By.xpath(".//h2");
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public JustJoinItPage() {
         this.driver = Driver.getDriver();
-        logger.info("Start new case and create WebDriver");
+        LOGGER.info("Start new case and create WebDriver");
     }
 
     public void getUrl() {
-        logger.info("Open URL: " + url);
+        LOGGER.info("Open URL: " + url);
         driver.get(url);
     }
 
     public void clickSignIn() {
-        logger.info("Clicking on Sign in button");
+        LOGGER.info("Clicking on Sign in button");
         driver.findElement(signInButton).click();
     }
 
     public void clickCandidateProfileSignIn() {
-        logger.info("Clicking on Sign in to Candidate's profile");
+        LOGGER.info("Clicking on Sign in to Candidate's profile");
         driver.findElement(candidateProfileSignInButton).click();
     }
 
     public void clickSignInByEmail() {
-        logger.info("Clicking on Sign in using email address");
+        LOGGER.info("Clicking on Sign in using email address");
         driver.findElement(signInByEmailButton).click();
     }
 
     public void sendEmail(String email) {
-        logger.info("Input Email: " + email);
+        LOGGER.info("Input Email: " + email);
         driver.findElement(emailInput).sendKeys(email);
     }
 
     public void sendPassword(String password) {
-        logger.info("Input Password: " + password);
+        LOGGER.info("Input Password: " + password);
         driver.findElement(passwordInput).sendKeys(password);
     }
 
     public void clickSignInButton() {
-        logger.info("Clicking on Sign in button");
+        LOGGER.info("Clicking on Sign in button");
         driver.findElement(signInToAccountButton).click();
     }
 
     public String getSignInError() {
         driver.findElement(signInError).click();
         String errorMessage = driver.findElement(signInError).getText();
-        logger.info("Get Sign in error: " + errorMessage);
+        LOGGER.info("Get Sign in error: " + errorMessage);
         return errorMessage;
     }
 
@@ -97,7 +97,7 @@ public class JustJoinItPage {
     }
 
     public void sendKeyPositionSearchInput(String position) {
-        logger.info("Input Position: " + position);
+        LOGGER.info("Input Position: " + position);
         driver.findElement(searchInput).sendKeys(position, Keys.ENTER);
     }
 
@@ -115,35 +115,35 @@ public class JustJoinItPage {
 
     public String getOfferSize() {
         checkPageUpdateAfterSearch();
-        logger.info("Get offer size");
+        LOGGER.info("Get offer size");
         return driver.findElement(offerSize).getText();
     }
 
     public List<WebElement> getOffersListByPositionSearch() {
         checkPageUpdateAfterSearch();
-        logger.info("Get offer list");
+        LOGGER.info("Get offer list");
         return driver.findElements(offerRecord);
     }
 
     public void clickTopCompaniesButton() {
-        logger.info("Clicking on Top companies button");
+        LOGGER.info("Clicking on Top companies button");
         driver.findElement(topCompaniesButton).click();
         driver.findElement(getStartedButton);
     }
 
     public void sendKeySearchCompanyInput(String keyword) {
-        logger.info("Input Company name keyword: " + keyword);
+        LOGGER.info("Input Company name keyword: " + keyword);
         driver.findElement(searchCompanyInput).sendKeys(keyword, Keys.ENTER);
     }
 
     public List<WebElement> getListOfCompanyByKeyword() {
         driver.findElement(afterSearchCompanyDiv);
-        logger.info("Get list of Company by keyword");
+        LOGGER.info("Get list of Company by keyword");
         return driver.findElements(listOfCompany);
     }
 
     public void clickStartupButton() {
-        logger.info("Clicking on Startup button");
+        LOGGER.info("Clicking on Startup button");
         driver.findElement(startupButton).click();
         driver.findElement(checkStartupSearchEnd);
     }
@@ -151,27 +151,27 @@ public class JustJoinItPage {
     public SortedSet<String> getListOfCompanyByName() {
         driver.findElement(afterSearchCompanyDiv);
         SortedSet<String> stringList = new TreeSet<>();
-        logger.info("Start adding elements to Company list");
+        LOGGER.info("Start adding elements to Company list");
         for (WebElement wb : driver.findElements(companyName)) {
             stringList.add(wb.getText());
-            logger.info(wb.getText());
+            LOGGER.info(wb.getText());
         }
-        logger.info("Get list of companies by name");
+        LOGGER.info("Get list of companies by name");
         return stringList;
     }
 
     public String getFirstCompanyName() {
         driver.findElement(startupSpanAvailible);
-        logger.info("Find first element by company name");
+        LOGGER.info("Find first element by company name");
         String firstCompanyName = getListOfCompanyByKeyword().getFirst().findElement(companyName).getText();
-        logger.info(firstCompanyName);
+        LOGGER.info(firstCompanyName);
         return firstCompanyName;
     }
 
     public String getFirstPositionName() {
-        logger.info("Find first element by position name");
+        LOGGER.info("Find first element by position name");
         String firstPositionName = getOffersListByPositionSearch().getFirst().findElement(positionName).getText();
-        logger.info(firstPositionName);
+        LOGGER.info(firstPositionName);
         return firstPositionName;
     }
 }
